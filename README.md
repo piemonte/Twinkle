@@ -54,6 +54,7 @@ The sample project provides an example of how to integrate `Twinkle`, otherwise 
 
 ## Resources
 
+* [Core Animation Reference Collection](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/CoreAnimation_framework/index.html)
 * [Shimmer](https://github.com/facebook/shimmer)
 * [objc.io Issue #16, Swift](http://www.objc.io/issue-16/)
 
