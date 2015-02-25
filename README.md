@@ -2,7 +2,7 @@
 
 `Twinkle` is a [Swift](https://developer.apple.com/swift/) and easy way to make any UIView in your iOS app twinkle.
 
-This library creates several `CAEmitterLayer` elements and animates them over a few creating a sparkle effect.
+This library creates several CAEmitterLayers and animates them generating a sparkle effect.
 
 ## Installation
 
