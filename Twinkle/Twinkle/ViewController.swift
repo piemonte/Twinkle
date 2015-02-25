@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         self.view.autoresizingMask = (UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight)
-        self.view.backgroundColor = UIColor(red: 26/255, green: 205/255, blue: 146/255, alpha: 1)
+        self.view.backgroundColor = UIColor(red: 81/255, green: 0, blue: 97/255, alpha: 1)
         
         let button: UIButton = UIButton(frame: CGRectMake(0, 0, 150, 50))
         button.center = self.view.center

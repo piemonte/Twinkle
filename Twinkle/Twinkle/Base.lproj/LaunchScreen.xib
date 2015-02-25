@@ -9,7 +9,7 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-            <color key="backgroundColor" red="0.10196078431372549" green="0.80392156862745101" blue="0.5725490196078431" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.31372549019607843" green="0.0" blue="0.37647058823529411" alpha="1" colorSpace="calibratedRGB"/>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
