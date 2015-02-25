@@ -1,3 +1,5 @@
+![Twinkle](https://raw.github.com/piemonte/twinkle/master/twinkle.gif)
+
 ## Twinkle
 
 `Twinkle` is a [Swift](https://developer.apple.com/swift/) and easy way to make any UIView in your iOS app twinkle.
