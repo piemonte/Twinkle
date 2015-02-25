@@ -24,9 +24,9 @@
 		06CBCA431A9DA31C00FD987B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		06CBCA481A9DA31C00FD987B /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		06CBCA4B1A9DA31C00FD987B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		06CBCA611A9DA36B00FD987B /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Base.xcconfig; path = ../../../../Desktop/oldTwinkle/Project/Base.xcconfig; sourceTree = "<group>"; };
-		06CBCA621A9DA36B00FD987B /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = ../../../../Desktop/oldTwinkle/Project/Debug.xcconfig; sourceTree = "<group>"; };
-		06CBCA631A9DA36B00FD987B /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = ../../../../Desktop/oldTwinkle/Project/Release.xcconfig; sourceTree = "<group>"; };
+		06CBCA611A9DA36B00FD987B /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Base.xcconfig; path = ../Base.xcconfig; sourceTree = "<group>"; };
+		06CBCA621A9DA36B00FD987B /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = ../Debug.xcconfig; sourceTree = "<group>"; };
+		06CBCA631A9DA36B00FD987B /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = ../Release.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
