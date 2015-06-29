@@ -81,7 +81,7 @@ class TwinkleLayer: CAEmitterLayer {
         self.renderMode = TwinkleLayerRenderModeKey
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
     }
@@ -98,7 +98,7 @@ extension TwinkleLayer {
 
     func addPositionAnimation() {
         CATransaction.begin()
-        var keyFrameAnim = CAKeyframeAnimation(keyPath: "position")
+        let keyFrameAnim = CAKeyframeAnimation(keyPath: "position")
         keyFrameAnim.duration = 0.3
         keyFrameAnim.additive = true
         keyFrameAnim.repeatCount = MAXFLOAT
@@ -116,7 +116,7 @@ extension TwinkleLayer {
     
     func addRotationAnimation() {
         CATransaction.begin()
-        var keyFrameAnim = CAKeyframeAnimation(keyPath: "transform")
+        let keyFrameAnim = CAKeyframeAnimation(keyPath: "transform")
         keyFrameAnim.duration = 0.3
         keyFrameAnim.valueFunction = CAValueFunction(name: kCAValueFunctionRotateZ)
         keyFrameAnim.additive = true
@@ -131,7 +131,7 @@ extension TwinkleLayer {
     
     func addFadeInOutAnimation(beginTime: CFTimeInterval) {
         CATransaction.begin()
-        var fadeAnimation: CABasicAnimation = CABasicAnimation(keyPath: "opacity")
+        let fadeAnimation: CABasicAnimation = CABasicAnimation(keyPath: "opacity")
         fadeAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         fadeAnimation.fromValue = 0
         fadeAnimation.toValue = 1
