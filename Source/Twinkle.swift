@@ -44,13 +44,14 @@ class TwinkleLayer: CAEmitterLayer {
     override init() {
         super.init()
         
-        // this could be a lot better in terms of performance, but not today
-        var twinkleImage: UIImage?
-        let resourcePath: String? = NSBundle.mainBundle().resourcePath
-        if let filePath = resourcePath?.stringByAppendingPathComponent("TwinkleImage") {
-            twinkleImage = UIImage(contentsOfFile: filePath)!
+        var twinkleImage :UIImage?
+        
+        let frameworkBundle = NSBundle(forClass: self.classForCoder)
+        if let imagePath = frameworkBundle.pathForResource("TwinkleImage", ofType: "png")
+        {
+            twinkleImage = UIImage(contentsOfFile: imagePath)
         }
-
+        
         let emitterCells: [CAEmitterCell] = [CAEmitterCell(), CAEmitterCell()]
         for cell in emitterCells {
             cell.birthRate = 8
@@ -72,7 +73,7 @@ class TwinkleLayer: CAEmitterLayer {
             cell.enabled = true
         }
         self.emitterCells = emitterCells
-
+        
         self.emitterPosition = CGPointMake((bounds.size.width * 0.5), (bounds.size.height * 0.5))
         self.emitterSize = bounds.size
         
@@ -80,8 +81,8 @@ class TwinkleLayer: CAEmitterLayer {
         self.emitterMode = TwinkleLayerEmitterModeKey
         self.renderMode = TwinkleLayerRenderModeKey
     }
-
-    required init(coder aDecoder: NSCoder) {
+    
+    required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         
     }
@@ -95,7 +96,7 @@ private let TwinkleLayerTransformAnimationKey = "transformAnimation"
 private let TwinkleLayerOpacityAnimationKey = "opacityAnimation"
 
 extension TwinkleLayer {
-
+    
     func addPositionAnimation() {
         CATransaction.begin()
         var keyFrameAnim = CAKeyframeAnimation(keyPath: "position")
@@ -105,10 +106,10 @@ extension TwinkleLayer {
         keyFrameAnim.removedOnCompletion = false
         keyFrameAnim.beginTime = CFTimeInterval(arc4random_uniform(1000) + 1) * 0.2 * 0.25 // random start time, non-zero
         let points: [NSValue] = [NSValue(CGPoint: CGPoint().twinkleRandom(0.25)),
-                                 NSValue(CGPoint: CGPoint().twinkleRandom(0.25)),
-                                 NSValue(CGPoint: CGPoint().twinkleRandom(0.25)),
-                                 NSValue(CGPoint: CGPoint().twinkleRandom(0.25)),
-                                 NSValue(CGPoint: CGPoint().twinkleRandom(0.25))]
+            NSValue(CGPoint: CGPoint().twinkleRandom(0.25)),
+            NSValue(CGPoint: CGPoint().twinkleRandom(0.25)),
+            NSValue(CGPoint: CGPoint().twinkleRandom(0.25)),
+            NSValue(CGPoint: CGPoint().twinkleRandom(0.25))]
         keyFrameAnim.values = points
         self.addAnimation(keyFrameAnim, forKey: TwinkleLayerPositionAnimationKey)
         CATransaction.commit()
@@ -152,20 +153,20 @@ extension TwinkleLayer {
 // MARK: - CGPoint
 
 extension CGPoint {
-
+    
     func twinkleRandom(range: Float)->CGPoint {
         let x = Int(-range + (Float(arc4random_uniform(1000)) / 1000.0) * 2.0 * range)
         let y = Int(-range + (Float(arc4random_uniform(1000)) / 1000.0) * 2.0 * range)
         return CGPoint(x: x, y: y)
     }
-
+    
 }
 
 // MARK: - UIView
 
 extension UIView {
-
-    func twinkle() {
+    
+    public func twinkle() {
         var twinkleLayers: [TwinkleLayer]! = []
         
         let upperBound: UInt32 = 10
@@ -188,5 +189,5 @@ extension UIView {
         
         twinkleLayers.removeAll(keepCapacity: false)
     }
-        
+    
 }
