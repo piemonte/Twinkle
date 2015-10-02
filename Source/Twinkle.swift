@@ -47,7 +47,8 @@ class TwinkleLayer: CAEmitterLayer {
         // this could be a lot better in terms of performance, but not today
         var twinkleImage: UIImage?
         let resourcePath: String? = NSBundle.mainBundle().resourcePath
-        if let filePath = resourcePath?.stringByAppendingPathComponent("TwinkleImage") {
+        let fileURL = NSURL(string: resourcePath!)?.URLByAppendingPathComponent("TwinkleImage")
+        if let filePath = fileURL?.absoluteString {
             twinkleImage = UIImage(contentsOfFile: filePath)!
         }
 
