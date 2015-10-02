@@ -6,8 +6,6 @@
 
 This library creates several CAEmitterLayers and animates them generating a sparkle effect.
 
-For Xcode 7 beta and [Swift 2.0](https://developer.apple.com/swift/blog/?id=29) support, please use the [branch](https://github.com/piemonte/Twinkle/tree/swift2.0).
-
 [![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/)
 
 ## Installation
@@ -33,7 +31,7 @@ Installation is also available using the dependency manager [Carthage](https://g
 To integrate, add the following line to your `Cartfile`:
 
 ```ogdl
-github “piemonte/Twinkle” >= 0.0.2
+github “piemonte/Twinkle” >= 0.0.3
 ```
 
 ### Manual
