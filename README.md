@@ -34,6 +34,21 @@ To integrate, add the following line to your `Cartfile`:
 github “piemonte/Twinkle” >= 0.0.3
 ```
 
+### Swift Package Manager
+
+Installation can be done with the [Swift Package Manager](https://swift.org/package-manager/), add the following in your `Package.swift` :
+
+```Swift
+import PackageDescription
+
+let package = Package(
+    name: "HellowWorld",
+    dependencies: [
+        .Package(url: "https://github.com/piemonte/Twinkle.git", majorVersion: 0)]),
+    ]
+)
+```
+
 ### Manual
 
 You can also simply copy the `Twinkle.swift` file into your Xcode project.
