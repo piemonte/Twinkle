@@ -2,7 +2,7 @@
 
 ## Twinkle :sparkles:
 
-`Twinkle` is a [Swift](https://developer.apple.com/swift/) and easy way to make any UIView in your iOS app twinkle.
+`Twinkle` is a [Swift](https://developer.apple.com/swift/) and easy way to make any UIView in your iOS or tvOS app twinkle.
 
 This library creates several CAEmitterLayers and animates them generating a sparkle effect.
 
