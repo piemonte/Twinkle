@@ -31,9 +31,9 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
     // MARK: UIApplicationDelegate
-
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         self.window = UIWindow(frame:UIScreen.mainScreen().bounds)
         self.window!.backgroundColor = UIColor(red: 26/255, green: 205/255, blue: 146/255, alpha: 1)

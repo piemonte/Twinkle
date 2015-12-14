@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0610"
+   LastUpgradeVersion = "0720"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,70 +14,50 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "06CBCA3B1A9DA31C00FD987B"
-               BuildableName = "Twinkle.app"
-               BlueprintName = "Twinkle"
-               ReferencedContainer = "container:Twinkle.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "06CBCA501A9DA31C00FD987B"
-               BuildableName = "TwinkleTests.xctest"
-               BlueprintName = "TwinkleTests"
+               BlueprintIdentifier = "04DE41291C1E3463008153C4"
+               BuildableName = "TwinkleTV.app"
+               BlueprintName = "TwinkleTV"
                ReferencedContainer = "container:Twinkle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "06CBCA501A9DA31C00FD987B"
-               BuildableName = "TwinkleTests.xctest"
-               BlueprintName = "TwinkleTests"
-               ReferencedContainer = "container:Twinkle.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "06CBCA3B1A9DA31C00FD987B"
-            BuildableName = "Twinkle.app"
-            BlueprintName = "Twinkle"
+            BlueprintIdentifier = "04DE41291C1E3463008153C4"
+            BuildableName = "TwinkleTV.app"
+            BlueprintName = "TwinkleTV"
             ReferencedContainer = "container:Twinkle.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <AdditionalOptions>
+      </AdditionalOptions>
    </TestAction>
    <LaunchAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "06CBCA3B1A9DA31C00FD987B"
-            BuildableName = "Twinkle.app"
-            BlueprintName = "Twinkle"
+            BlueprintIdentifier = "04DE41291C1E3463008153C4"
+            BuildableName = "TwinkleTV.app"
+            BlueprintName = "TwinkleTV"
             ReferencedContainer = "container:Twinkle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -85,17 +65,18 @@
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      buildConfiguration = "Debug"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "06CBCA3B1A9DA31C00FD987B"
-            BuildableName = "Twinkle.app"
-            BlueprintName = "Twinkle"
+            BlueprintIdentifier = "04DE41291C1E3463008153C4"
+            BuildableName = "TwinkleTV.app"
+            BlueprintName = "TwinkleTV"
             ReferencedContainer = "container:Twinkle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -104,7 +85,7 @@
       buildConfiguration = "Debug">
    </AnalyzeAction>
    <ArchiveAction
-      buildConfiguration = "Release"
+      buildConfiguration = "Debug"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>
