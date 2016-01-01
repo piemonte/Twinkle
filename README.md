@@ -42,7 +42,7 @@ Installation can be done with the [Swift Package Manager](https://swift.org/pack
 import PackageDescription
 
 let package = Package(
-    name: "HellowWorld",
+    name: "HelloWorld",
     dependencies: [
         .Package(url: "https://github.com/piemonte/Twinkle.git", majorVersion: 0)
     ]
