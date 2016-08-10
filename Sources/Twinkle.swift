@@ -47,7 +47,7 @@ class TwinkleLayer: CAEmitterLayer {
         var twinkleImage :UIImage?
         
         let frameworkBundle = Bundle(for: self.classForCoder)
-        if let imagePath = frameworkBundle.pathForResource("TwinkleImage", ofType: "png")
+        if let imagePath = frameworkBundle.path(forResource: "TwinkleImage", ofType: "png")
         {
             twinkleImage = UIImage(contentsOfFile: imagePath)
         }
