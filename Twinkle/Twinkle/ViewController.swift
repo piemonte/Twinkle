@@ -54,7 +54,7 @@ class ViewController: UIViewController {
         button.center = self.view.center
         button.setTitle("Tap to Twinkle", forState: .Normal)
         button.titleLabel!.font = UIFont(name: "AvenirNext-Regular", size: 32)
-        button.addTarget(self, action: "handleButton:", forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(ViewController.handleButton(_:)), forControlEvents: .TouchUpInside)
         self.view.addSubview(button)
     }
     
