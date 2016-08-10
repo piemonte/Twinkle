@@ -40,7 +40,7 @@ class ViewController: UIViewController {
         super.init(coder: aDecoder)!
     }
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
+    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
     
@@ -49,24 +49,24 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.autoresizingMask = ([UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight])
+        self.view.autoresizingMask = ([UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight])
         self.view.backgroundColor = UIColor(red: 81/255, green: 0, blue: 97/255, alpha: 1)
         
-        let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "handleTap:")
-        tapGestureRecognizer.allowedPressTypes = [NSNumber(integer: UIPressType.PlayPause.rawValue)];
+        let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleTap(_:)))
+        tapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)];
         self.view.addGestureRecognizer(tapGestureRecognizer)
         
-        textLabel = UILabel(frame: CGRectMake(0, 0, 800, 150))
+        textLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 800, height: 150))
         textLabel.center = self.view.center
         textLabel.text = "Play/Pause to Twinkle"
-        textLabel.textColor = UIColor.whiteColor()
+        textLabel.textColor = UIColor.white
         textLabel.font = UIFont(name: "AvenirNext-Regular", size: 72)
         self.view.addSubview(textLabel)
     }
     
     // MARK: UIButton handler
     
-    func handleTap(button: UITapGestureRecognizer!) {
+    func handleTap(_ button: UITapGestureRecognizer!) {
         textLabel.twinkle()
     }
 }
