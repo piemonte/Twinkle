@@ -18,6 +18,7 @@
 		06CBCA441A9DA31C00FD987B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CBCA431A9DA31C00FD987B /* ViewController.swift */; };
 		06CBCA491A9DA31C00FD987B /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06CBCA481A9DA31C00FD987B /* Images.xcassets */; };
 		06CBCA4C1A9DA31C00FD987B /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 06CBCA4A1A9DA31C00FD987B /* LaunchScreen.xib */; };
+		84630C261D755B1B00B54709 /* Radom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84630C251D755B1B00B54709 /* Radom.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		06CBCA611A9DA36B00FD987B /* Base.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Base.xcconfig; path = ../Base.xcconfig; sourceTree = "<group>"; };
 		06CBCA621A9DA36B00FD987B /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Debug.xcconfig; path = ../Debug.xcconfig; sourceTree = "<group>"; };
 		06CBCA631A9DA36B00FD987B /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; name = Release.xcconfig; path = ../Release.xcconfig; sourceTree = "<group>"; };
+		84630C251D755B1B00B54709 /* Radom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Radom.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 			children = (
 				06712F351A9DA42F00C44371 /* Resources */,
 				046A4B801C1E3BD100E6CB2F /* Twinkle.swift */,
+				84630C251D755B1B00B54709 /* Radom.swift */,
 			);
 			path = Twinkle;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06CBCA441A9DA31C00FD987B /* ViewController.swift in Sources */,
+				84630C261D755B1B00B54709 /* Radom.swift in Sources */,
 				06CBCA421A9DA31C00FD987B /* AppDelegate.swift in Sources */,
 				046A4B811C1E3BD100E6CB2F /* Twinkle.swift in Sources */,
 			);

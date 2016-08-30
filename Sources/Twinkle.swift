@@ -25,6 +25,7 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 //  SOFTWARE.
 
+
 import UIKit
 import Foundation
 import CoreGraphics
@@ -46,7 +47,7 @@ class TwinkleLayer: CAEmitterLayer {
         
         var twinkleImage :UIImage?
         
-        let frameworkBundle = NSBundle(forClass: self.classForCoder)
+        let frameworkBundle = NSBundle(forClass: classForCoder)
         if let imagePath = frameworkBundle.pathForResource("TwinkleImage", ofType: "png")
         {
             twinkleImage = UIImage(contentsOfFile: imagePath)
@@ -74,12 +75,12 @@ class TwinkleLayer: CAEmitterLayer {
         }
         self.emitterCells = emitterCells
         
-        self.emitterPosition = CGPointMake((bounds.size.width * 0.5), (bounds.size.height * 0.5))
-        self.emitterSize = bounds.size
+        emitterPosition = CGPointMake((bounds.size.width * 0.5), (bounds.size.height * 0.5))
+        emitterSize = bounds.size
         
-        self.emitterShape = TwinkleLayerEmitterShapeKey
-        self.emitterMode = TwinkleLayerEmitterModeKey
-        self.renderMode = TwinkleLayerRenderModeKey
+        emitterShape = TwinkleLayerEmitterShapeKey
+        emitterMode = TwinkleLayerEmitterModeKey
+        renderMode = TwinkleLayerRenderModeKey
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -104,14 +105,14 @@ extension TwinkleLayer {
         keyFrameAnim.additive = true
         keyFrameAnim.repeatCount = MAXFLOAT
         keyFrameAnim.removedOnCompletion = false
-        keyFrameAnim.beginTime = CFTimeInterval(arc4random_uniform(1000) + 1) * 0.2 * 0.25 // random start time, non-zero
-        let points: [NSValue] = [NSValue(CGPoint: CGPoint().twinkleRandom(0.25)),
-            NSValue(CGPoint: CGPoint().twinkleRandom(0.25)),
-            NSValue(CGPoint: CGPoint().twinkleRandom(0.25)),
-            NSValue(CGPoint: CGPoint().twinkleRandom(0.25)),
-            NSValue(CGPoint: CGPoint().twinkleRandom(0.25))]
+        keyFrameAnim.beginTime = CFTimeInterval(1000.random + 1) * 0.05 // random start time, non-zero
+        let points: [NSValue] = [NSValue(CGPoint: CGPoint.random(0, 0.5)),
+                                 NSValue(CGPoint: CGPoint.random(0, 0.5)),
+                                 NSValue(CGPoint: CGPoint.random(0, 0.5)),
+                                 NSValue(CGPoint: CGPoint.random(0, 0.5)),
+                                 NSValue(CGPoint: CGPoint.random(0, 0.5))]
         keyFrameAnim.values = points
-        self.addAnimation(keyFrameAnim, forKey: TwinkleLayerPositionAnimationKey)
+        addAnimation(keyFrameAnim, forKey: TwinkleLayerPositionAnimationKey)
         CATransaction.commit()
     }
     
@@ -123,10 +124,10 @@ extension TwinkleLayer {
         keyFrameAnim.additive = true
         keyFrameAnim.repeatCount = MAXFLOAT
         keyFrameAnim.removedOnCompletion = false
-        keyFrameAnim.beginTime = CFTimeInterval(arc4random_uniform(1000) + 1) * 0.2 * 0.25 // random start time, non-zero
+        keyFrameAnim.beginTime = CFTimeInterval(1000.random + 1) * 0.2 * 0.25 // random start time, non-zero
         let radians: Float = 0.104 // ~6 degrees
         keyFrameAnim.values = [-radians, radians, -radians]
-        self.addAnimation(keyFrameAnim, forKey: TwinkleLayerTransformAnimationKey)
+        addAnimation(keyFrameAnim, forKey: TwinkleLayerTransformAnimationKey)
         CATransaction.commit()
     }
     
@@ -144,43 +145,34 @@ extension TwinkleLayer {
         CATransaction.setCompletionBlock({
             self.removeFromSuperlayer()
         })
-        self.addAnimation(fadeAnimation, forKey: TwinkleLayerOpacityAnimationKey)
+        addAnimation(fadeAnimation, forKey: TwinkleLayerOpacityAnimationKey)
         CATransaction.commit()
-    }
-    
-}
-
-// MARK: - CGPoint
-
-extension CGPoint {
-    
-    func twinkleRandom(range: Float)->CGPoint {
-        let x = Int(-range + (Float(arc4random_uniform(1000)) / 1000.0) * 2.0 * range)
-        let y = Int(-range + (Float(arc4random_uniform(1000)) / 1000.0) * 2.0 * range)
-        return CGPoint(x: x, y: y)
     }
     
 }
 
 // MARK: - UIView
 
-extension UIView {
+public extension UIView {
     
-    public func twinkle() {
+    /**
+     Stars twinkle in the view. lower <= number of stars <= upper
+     - parameter lower: least number of stars
+     - parameter upper: most number of stars
+     */
+    public func twinkle(lower lower: UInt32 = 5, upper: UInt32 = 10) {
         var twinkleLayers: [TwinkleLayer]! = []
         
-        let upperBound: UInt32 = 10
-        let lowerBound: UInt32 = 5
-        let count: UInt = UInt(arc4random_uniform(upperBound) + lowerBound)
+        let count = UInt32.random(lower, upper)
         
         for i in 0..<count {
             let twinkleLayer: TwinkleLayer = TwinkleLayer()
-            let x: Int = Int(arc4random_uniform(UInt32(self.layer.bounds.size.width)))
-            let y: Int = Int(arc4random_uniform(UInt32(self.layer.bounds.size.height)))
-            twinkleLayer.position = CGPointMake(CGFloat(x), CGFloat(y))
+            let x = layer.bounds.size.width.random
+            let y = layer.bounds.size.height.random
+            twinkleLayer.position = CGPoint(x: x, y: y)
             twinkleLayer.opacity = 0
             twinkleLayers.append(twinkleLayer)
-            self.layer.addSublayer(twinkleLayer)
+            layer.addSublayer(twinkleLayer)
             
             twinkleLayer.addPositionAnimation()
             twinkleLayer.addRotationAnimation()
