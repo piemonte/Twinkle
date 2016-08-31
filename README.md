@@ -51,7 +51,7 @@ let package = Package(
 
 ### Manual
 
-You can also simply copy the `Twinkle.swift` file into your Xcode project.
+You can also simply copy the `Twinkle.swift` and 'Random.swift' file into your Xcode project.
 
 ## Usage
 
