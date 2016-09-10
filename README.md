@@ -6,52 +6,47 @@
 
 This library creates several CAEmitterLayers and animates them generating a sparkle effect.
 
-[![Build Status](https://travis-ci.org/piemonte/Twinkle.svg?branch=master)](https://travis-ci.org/piemonte/Twinkle) [![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/)
+[![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/)
+[![Build Status](https://travis-ci.org/piemonte/Twinkle.svg?branch=master)](https://travis-ci.org/piemonte/Twinkle)
 
-## Installation
+# Quick Start
 
-### CocoaPods
+`Twinkle` is available and recommended for installation using the Cocoa dependency manager [CocoaPods](http://cocoapods.org/). You can also simply copy the `Twinkle.swift` file into your Xcode project.
 
-`Twinkle` is available and recommended for installation using the Cocoa dependency manager [CocoaPods](http://cocoapods.org/). Swift is supported as of version 0.36.
-
-To integrate, add the following to your `Podfile`:
+## Xcode 8 & Swift 3
 
 ```ruby
-source ‘https://github.com/CocoaPods/Specs.git'
-platform :iOS, ‘8.0’
-use_frameworks!
+# CocoaPods
+pod "Twinkle", "~> 0.2.0"
 
-pod ‘Twinkle’
-```	
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+    target.build_configurations.each do |config|
+      config.build_settings['SWIFT_VERSION'] = '3.0'
+    end
+  end
+end
 
-### Carthage
+# Carthage
+github "piemonte/Twinkle" ~> 0.2.0
 
-Installation is also available using the dependency manager [Carthage](https://github.com/Carthage/Carthage).
-
-To integrate, add the following line to your `Cartfile`:
-
-```ogdl
-github “piemonte/Twinkle” >= 0.0.3
-```
-
-### Swift Package Manager
-
-Installation can be done with the [Swift Package Manager](https://swift.org/package-manager/), add the following in your `Package.swift` :
-
-```Swift
-import PackageDescription
-
+# SwiftPM
 let package = Package(
-    name: "HelloWorld",
     dependencies: [
-        .Package(url: "https://github.com/piemonte/Twinkle.git", majorVersion: 0)
+        .Package(url: "https://github.com/piemonte/Twinkle", majorVersion: 0)
     ]
 )
 ```
 
-### Manual
+## Xcode 8 & Swift 2.3 or Xcode 7
 
-You can also simply copy the `Twinkle.swift` file into your Xcode project.
+```ruby
+# CocoaPods
+pod "Twinkle", "~> 0.1.1"
+
+# Carthage
+github "piemonte/Twinkle" ~> 0.1.1
+```
 
 ## Usage
 
