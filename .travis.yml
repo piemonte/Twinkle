@@ -6,10 +6,7 @@ env:
   - LANG=en_US.UTF-8
   - IOS_SDK=iphonesimulator10.0
   - TVOS_SDK=appletvsimulator10.0
-before_install:
-  - brew update
-  - brew reinstall xctool
 script:
   - xcodebuild -showsdks
-  - xctool -project Twinkle/Twinkle.xcodeproj -scheme 'Debug - iOS' -sdk $IOS_SDK build analyze
-#  - xctool -project Twinkle/Twinkle.xcodeproj -scheme 'Debug - tvOS' -sdk $TVOS_SDK build analyze
+  - xcodebuild -project Twinkle/Twinkle.xcodeproj -scheme 'Debug - iOS' -sdk $IOS_SDK build analyze
+#  - xcodebuild -project Twinkle/Twinkle.xcodeproj -scheme 'Debug - tvOS' -sdk $TVOS_SDK build analyze
