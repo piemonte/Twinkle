@@ -6,8 +6,7 @@
 
 This library creates several CAEmitterLayers and animates them generating a sparkle effect.
 
-[![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/)
-[![Build Status](https://travis-ci.org/piemonte/Twinkle.svg?branch=master)](https://travis-ci.org/piemonte/Twinkle)
+[![Build Status](https://travis-ci.org/piemonte/Twinkle.svg?branch=master)](https://travis-ci.org/piemonte/Twinkle) [![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/)
 
 # Quick Start
 
