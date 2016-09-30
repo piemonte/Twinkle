@@ -28,39 +28,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    // MARK: object lifecycle
-    
-    convenience init() {
-        self.init(nibName: nil, bundle:nil)
-    }
-    
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)!
-    }
-
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-    }
-
     // MARK: view lifecycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.autoresizingMask = ([UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight])
+        self.view.autoresizingMask = [UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight]
         self.view.backgroundColor = UIColor(red: 81/255, green: 0, blue: 97/255, alpha: 1)
         
-        let button: UIButton = UIButton(frame: CGRectMake(0, 0, 240, 50))
+        let button: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 240, height: 50))
         button.center = self.view.center
-        button.setTitle("Tap to Twinkle", forState: .Normal)
+        button.setTitle("Tap to Twinkle", for: UIControlState())
         button.titleLabel!.font = UIFont(name: "AvenirNext-Regular", size: 32)
-        button.addTarget(self, action: #selector(ViewController.handleButton(_:)), forControlEvents: .TouchUpInside)
+        button.addTarget(self, action: #selector(ViewController.handleButton(_:)), for: .touchUpInside)
         self.view.addSubview(button)
     }
     
     // MARK: UIButton handler
     
-    func handleButton(button: UIButton!) {
+    func handleButton(_ button: UIButton!) {
         button.twinkle()
     }
 }

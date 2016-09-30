@@ -16,15 +16,15 @@ public extension Int {
      - parameter upper: default -> 100
      - returns: lower <= value <= upper
      */
-    public static func random(lower: Int = 0, _ upper: Int = 100) -> Int {
+    public static func random(_ lower: Int = 0, _ upper: Int = 100) -> Int {
         return lower + Int(arc4random_uniform(UInt32(upper - lower + 1)))
     }
     
     /**
      - returns: range.startIndex <= value <= range.endIndex
      */
-    public static func random(range: Range<Int>) -> Int {
-        return Int.random(range.startIndex, range.endIndex - 1)
+    public static func random(_ range: Range<Int>) -> Int {
+        return Int.random(range.lowerBound, range.upperBound - 1)
     }
     
     /// if self == 0, 0; else if self > 0, 0 <= value <= self; else self <= value <= 0
@@ -39,14 +39,14 @@ public extension UInt32 {
      - parameter upper: default -> 100
      - returns: lower <= value <= upper
      */
-    public static func random(lower: UInt32 = 0, _ upper: UInt32 = 100) -> UInt32 {
+    public static func random(_ lower: UInt32 = 0, _ upper: UInt32 = 100) -> UInt32 {
         return lower + UInt32(arc4random_uniform(upper - lower + 1))
     }
     /**
      - returns: range.startIndex <= value <= range.endIndex
      */
-    public static func random(range: Range<UInt32>) -> UInt32 {
-        return UInt32.random(range.startIndex, range.endIndex - 1)
+    public static func random(_ range: Range<UInt32>) -> UInt32 {
+        return UInt32.random(range.lowerBound, range.upperBound - 1)
     }
     /// 0 <= value <= self
     public var random: UInt32 {
@@ -67,7 +67,7 @@ public extension Double {
      - parameter upper: default -> 100
      - returns: lower <= value <= upper
      */
-    public static func random(lower: Double = 0, _ upper: Double = 100) -> Double {
+    public static func random(_ lower: Double = 0, _ upper: Double = 100) -> Double {
         return (Double(arc4random()) / Double(UINT32_MAX)) * (upper - lower) + lower
     }
     
@@ -83,7 +83,7 @@ public extension Float {
      - parameter upper: default -> 100
      - returns: lower <= value <= upper
      */
-    public static func random(lower: Float = 0, _ upper: Float = 100) -> Float {
+    public static func random(_ lower: Float = 0, _ upper: Float = 100) -> Float {
         return (Float(arc4random()) / Float(UINT32_MAX)) * (upper - lower) + lower
     }
     
@@ -99,7 +99,7 @@ public extension CGFloat {
      - parameter upper: default -> 100
      - returns: lower <= value <= upper
      */
-    public static func random(lower: CGFloat = 0, _ upper: CGFloat = 1) -> CGFloat {
+    public static func random(_ lower: CGFloat = 0, _ upper: CGFloat = 1) -> CGFloat {
         return CGFloat(CGFloat(arc4random()) / CGFloat(UINT32_MAX)) * (upper - lower) + lower
     }
     
@@ -125,7 +125,7 @@ public extension CGPoint {
      - parameter upper: default -> 100
      - returns: lower.x <= value.x <= upper.x && lower.y <= value.y <= upper.y
      */
-    public static func random(lower: CGFloat = 0, _ upper: CGFloat = 100) -> CGPoint {
+    public static func random(_ lower: CGFloat = 0, _ upper: CGFloat = 100) -> CGPoint {
         let x = CGFloat.random(lower, upper)
         let y = CGFloat.random(lower, lower)
         return CGPoint(x: x, y: y)
