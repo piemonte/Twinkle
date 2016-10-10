@@ -70,8 +70,9 @@ The sample project provides an example of how to integrate `Twinkle`, otherwise 
 ## Resources
 
 * [Core Animation Reference Collection](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/CoreAnimation_framework/index.html)
-* [Shimmer](https://github.com/facebook/shimmer)
 * [Swift Evolution](https://github.com/apple/swift-evolution)
+* [Shimmer](https://github.com/facebook/shimmer)
+* [Blurry](https://github.com/piemonte/Blurry)
 
 ## License
 
