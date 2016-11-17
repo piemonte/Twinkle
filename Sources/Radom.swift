@@ -1,13 +1,11 @@
 //
-//  Radom.swift
-//  Twinkle
+//  Random.swift
+//  iOSBaseProject
 //
-//  Created by admin on 16/8/30.
-//  Copyright © 2016年 patrickpiemonte. All rights reserved.
+//  Created by admin on 16/8/24.
+//  Copyright © 2016年 Ding. All rights reserved.
 //
-
 // MARK: - Extensions of Int, UInt32, Bool, Float, Double, CGFloat, UIColor, CGPoint, Array, ArraySlice to add vars or methods about random.
-
 import UIKit
 
 public extension Int {
@@ -19,14 +17,6 @@ public extension Int {
     public static func random(_ lower: Int = 0, _ upper: Int = 100) -> Int {
         return lower + Int(arc4random_uniform(UInt32(upper - lower + 1)))
     }
-    
-    /**
-     - returns: range.startIndex <= value <= range.endIndex
-     */
-    public static func random(_ range: Range<Int>) -> Int {
-        return Int.random(range.lowerBound, range.upperBound - 1)
-    }
-    
     /// if self == 0, 0; else if self > 0, 0 <= value <= self; else self <= value <= 0
     public var random: Int {
         return Int.random(0, self)
@@ -40,17 +30,26 @@ public extension UInt32 {
      - returns: lower <= value <= upper
      */
     public static func random(_ lower: UInt32 = 0, _ upper: UInt32 = 100) -> UInt32 {
-        return lower + UInt32(arc4random_uniform(upper - lower + 1))
-    }
-    /**
-     - returns: range.startIndex <= value <= range.endIndex
-     */
-    public static func random(_ range: Range<UInt32>) -> UInt32 {
-        return UInt32.random(range.lowerBound, range.upperBound - 1)
+        assert(upper >= lower, "UInt32.random(lower:upper:) - upper should >= lower")
+        return lower + arc4random_uniform(upper - lower + 1)
     }
     /// 0 <= value <= self
     public var random: UInt32 {
         return UInt32.random(0, self)
+    }
+}
+
+public extension CountableClosedRange where Bound: Integer {
+    /// lower <= value <= upper
+    public var random: Int {
+        return lowerBound.hashValue + arc4random_uniform(UInt32(upperBound.hashValue - lowerBound.hashValue)).hashValue
+    }
+}
+
+public extension CountableRange where Bound: Integer {
+    /// lower <= value < upper
+    public var random: Int {
+        return lowerBound.hashValue + arc4random_uniform(UInt32(upperBound.hashValue - lowerBound.hashValue)).hashValue
     }
 }
 
@@ -92,6 +91,21 @@ public extension Float {
         return Float.random(0, self)
     }
 }
+public extension Array {
+    /// a random item in array
+    public var randomItem: Element {
+        let index = Int(arc4random_uniform(UInt32(self.count)))
+        return self[index]
+    }
+}
+
+public extension ArraySlice {
+    /// a random item in array slice
+    public var randomItem: Element {
+        let index = Int.random(self.startIndex, self.endIndex - 1)
+        return self[index]
+    }
+}
 
 public extension CGFloat {
     /**
@@ -131,20 +145,3 @@ public extension CGPoint {
         return CGPoint(x: x, y: y)
     }
 }
-
-public extension Array {
-    /// a random item in array
-    public var randomItem: Element {
-        let index = Int(arc4random_uniform(UInt32(self.count)))
-        return self[index]
-    }
-}
-
-public extension ArraySlice {
-    /// a random item in array slice
-    public var randomItem: Element {
-        let index = Int.random(self.startIndex, self.endIndex - 1)
-        return self[index]
-    }
-}
-
