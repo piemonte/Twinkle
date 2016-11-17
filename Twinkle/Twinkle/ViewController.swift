@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     // MARK: UIButton handler
     
     func handleButton(_ button: UIButton!) {
-        button.twinkle()
+        button.twinkle(starImage: UIImage(named: "TwinkleImage"))
     }
 }
 

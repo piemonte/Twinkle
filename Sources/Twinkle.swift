@@ -38,20 +38,11 @@ private let TwinkleLayerMinificationFilter = "trilinear"
 
 // MARK: - TwinkleLayer
 
-class TwinkleLayer: CAEmitterLayer {
-    
+fileprivate class TwinkleLayer: CAEmitterLayer {
     // MARK: object lifecycle
     
-    override init() {
+    init(starImage: UIImage?) {
         super.init()
-        
-        var twinkleImage :UIImage?
-        
-        let frameworkBundle = Bundle(for: classForCoder)
-        if let imagePath = frameworkBundle.path(forResource: "TwinkleImage", ofType: "png")
-        {
-            twinkleImage = UIImage(contentsOfFile: imagePath)
-        }
         
         let emitterCells: [CAEmitterCell] = [CAEmitterCell(), CAEmitterCell()]
         for cell in emitterCells {
@@ -68,7 +59,7 @@ class TwinkleLayer: CAEmitterLayer {
             cell.spinRange = CGFloat(M_PI)
             cell.color = UIColor(white: 1.0, alpha: 0.3).cgColor
             cell.alphaSpeed = -0.8
-            cell.contents = twinkleImage?.cgImage
+            cell.contents = starImage?.cgImage
             cell.magnificationFilter = TwinkleLayerMagnificationFilter
             cell.minificationFilter = TwinkleLayerMinificationFilter
             cell.isEnabled = true
@@ -84,8 +75,7 @@ class TwinkleLayer: CAEmitterLayer {
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        
+        fatalError("init(coder:) has not been implemented")
     }
     
 }
@@ -160,13 +150,13 @@ public extension UIView {
      - parameter lower: least number of stars
      - parameter upper: most number of stars
      */
-    public func twinkle(lower: UInt32 = 5, upper: UInt32 = 10) {
+    public func twinkle(starImage: UIImage?, lower: UInt32 = 5, upper: UInt32 = 10) {
         var twinkleLayers: [TwinkleLayer]! = []
         
         let count = UInt32.random(lower, upper)
         
         for i in 0..<count {
-            let twinkleLayer: TwinkleLayer = TwinkleLayer()
+            let twinkleLayer: TwinkleLayer = TwinkleLayer(starImage: starImage)
             let x = layer.bounds.size.width.random
             let y = layer.bounds.size.height.random
             twinkleLayer.position = CGPoint(x: x, y: y)

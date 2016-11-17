@@ -67,6 +67,6 @@ class ViewController: UIViewController {
     // MARK: UIButton handler
     
     func handleTap(button: UITapGestureRecognizer!) {
-        textLabel.twinkle()
+        textLabel.twinkle(starImage: UIImage(named: "TwinkleImage"))
     }
 }
