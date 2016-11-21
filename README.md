@@ -56,9 +56,14 @@ The sample project provides an example of how to integrate `Twinkle`, otherwise 
 ```
 
 ``` Swift
+
+   // using the UIView extension
    let view: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
    self.view.addSubview(view)
    view.twinkle()
+
+   // using the class func
+   Twinkle.twinkle(myView)
 ```
 
 ## Community
