@@ -151,9 +151,9 @@ internal class TwinkleLayer: CAEmitterLayer {
     
 }
 
-private let TwinkleLayerPositionAnimationKey = "positionAnimation"
-private let TwinkleLayerTransformAnimationKey = "transformAnimation"
-private let TwinkleLayerOpacityAnimationKey = "opacityAnimation"
+fileprivate let TwinkleLayerPositionAnimationKey = "positionAnimation"
+fileprivate let TwinkleLayerTransformAnimationKey = "transformAnimation"
+fileprivate let TwinkleLayerOpacityAnimationKey = "opacityAnimation"
 
 extension TwinkleLayer {
 
