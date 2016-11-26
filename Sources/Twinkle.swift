@@ -37,8 +37,13 @@ private let TwinkleLayerMinificationFilter = "trilinear"
 
 // MARK: - Twinkle
 
+/// ✨ Twinkle, a Swift and easy way to make any UIView twinkle.
 public class Twinkle {
     
+    
+    /// Casts a spell on the provided view allowing it to twinkle.
+    ///
+    /// - Parameter view: UIView that will twinkle
     public class func twinkle(_ view: UIView) {
         var twinkleLayers: [TwinkleLayer] = []
         
@@ -101,10 +106,8 @@ internal class TwinkleLayer: CAEmitterLayer {
             cell.isEnabled = true
         }
         self.emitterCells = emitterCells
-        
         self.emitterPosition = CGPoint(x: (bounds.size.width * 0.5), y: (bounds.size.height * 0.5))
         self.emitterSize = bounds.size
-        
         self.emitterShape = TwinkleLayerEmitterShapeKey
         self.emitterMode = TwinkleLayerEmitterModeKey
         self.renderMode = TwinkleLayerRenderModeKey
@@ -140,10 +143,8 @@ internal class TwinkleLayer: CAEmitterLayer {
             cell.isEnabled = true
         }
         self.emitterCells = emitterCells
-        
         self.emitterPosition = CGPoint(x: (bounds.size.width * 0.5), y: (bounds.size.height * 0.5))
         self.emitterSize = bounds.size
-        
         self.emitterShape = TwinkleLayerEmitterShapeKey
         self.emitterMode = TwinkleLayerEmitterModeKey
         self.renderMode = TwinkleLayerRenderModeKey
@@ -228,6 +229,7 @@ extension CGPoint {
 
 extension UIView {
     
+    /// UIView extension that provides a convenient means for triggering a twinkle effect.
     public func twinkle() {
         Twinkle.twinkle(self)
     }
