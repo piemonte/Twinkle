@@ -157,7 +157,7 @@ private let TwinkleLayerOpacityAnimationKey = "opacityAnimation"
 
 extension TwinkleLayer {
 
-    // MARK: - animations
+    // MARK: animation support
 
     internal func addPositionAnimation() {
         CATransaction.begin()
@@ -167,11 +167,11 @@ extension TwinkleLayer {
         keyFrameAnim.repeatCount = MAXFLOAT
         keyFrameAnim.isRemovedOnCompletion = false
         keyFrameAnim.beginTime = CFTimeInterval(arc4random_uniform(1000) + 1) * 0.2 * 0.25 // random start time, non-zero
-        let points: [NSValue] = [NSValue(cgPoint: CGPoint().twinkleRandom(0.25)),
-            NSValue(cgPoint: CGPoint().twinkleRandom(0.25)),
-            NSValue(cgPoint: CGPoint().twinkleRandom(0.25)),
-            NSValue(cgPoint: CGPoint().twinkleRandom(0.25)),
-            NSValue(cgPoint: CGPoint().twinkleRandom(0.25))]
+        let points: [NSValue] = [NSValue(cgPoint: CGPoint.random(0.25)),
+                                 NSValue(cgPoint: CGPoint.random(0.25)),
+                                 NSValue(cgPoint: CGPoint.random(0.25)),
+                                 NSValue(cgPoint: CGPoint.random(0.25)),
+                                 NSValue(cgPoint: CGPoint.random(0.25))]
         keyFrameAnim.values = points
         self.add(keyFrameAnim, forKey: TwinkleLayerPositionAnimationKey)
         CATransaction.commit()
@@ -216,7 +216,7 @@ extension TwinkleLayer {
 
 extension CGPoint {
     
-    public func twinkleRandom(_ range: Float) -> CGPoint {
+    internal static func random(_ range: Float) -> CGPoint {
         let x = Int(-range + (Float(arc4random_uniform(1000)) / 1000.0) * 2.0 * range)
         let y = Int(-range + (Float(arc4random_uniform(1000)) / 1000.0) * 2.0 * range)
         return CGPoint(x: x, y: y)
