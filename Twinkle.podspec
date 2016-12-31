@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Twinkle'
-  s.version = '0.2.2'
+  s.version = '0.2.3'
   s.license = 'MIT'
   s.summary = 'Swift and easy way to make elements in your iOS or tvOS app twinkle'
   s.homepage = 'https://github.com/piemonte/twinkle'
