@@ -40,11 +40,13 @@ private let TwinkleLayerMinificationFilter = "trilinear"
 /// ✨ Twinkle, a Swift and easy way to make any UIView twinkle.
 public class Twinkle {
     
-    
     /// Casts a spell on the provided view allowing it to twinkle.
     ///
-    /// - Parameter view: UIView that will twinkle
-    public class func twinkle(_ view: UIView) {
+    /// - Parameters:
+    ///   - view: UIView that will twinkle
+    ///   - image: Optional twinkle image
+    ///   - color: Optional color for the default twinkle image
+    public class func twinkle(_ view: UIView, image: UIImage? = nil) {
         var twinkleLayers: [TwinkleLayer] = []
         
         let upperBound: UInt32 = 10
@@ -52,7 +54,7 @@ public class Twinkle {
         let count: UInt = UInt(arc4random_uniform(upperBound) + lowerBound)
         
         for i in 0..<count {
-            let twinkleLayer: TwinkleLayer = TwinkleLayer()
+            let twinkleLayer: TwinkleLayer = image == nil ? TwinkleLayer() : TwinkleLayer(image: image!)
             let x: Int = Int(arc4random_uniform(UInt32(view.layer.bounds.size.width)))
             let y: Int = Int(arc4random_uniform(UInt32(view.layer.bounds.size.height)))
             twinkleLayer.position = CGPoint(x: CGFloat(x), y: CGFloat(y))
@@ -76,6 +78,11 @@ internal class TwinkleLayer: CAEmitterLayer {
     
     // MARK: object lifecycle
     
+    internal convenience init(image: UIImage) {
+        self.init()
+        self.commonInit(image)
+    }
+    
     internal override init() {
         super.init()
         self.commonInit()
@@ -97,6 +104,8 @@ internal class TwinkleLayer: CAEmitterLayer {
             }
         }
         
+        self.emitterCells?.removeAll()
+        
         let emitterCells: [CAEmitterCell] = [CAEmitterCell(), CAEmitterCell()]
         for cell in emitterCells {
             cell.birthRate = 8
@@ -117,6 +126,7 @@ internal class TwinkleLayer: CAEmitterLayer {
             cell.minificationFilter = TwinkleLayerMinificationFilter
             cell.isEnabled = true
         }
+        
         self.emitterCells = emitterCells
         self.emitterPosition = CGPoint(x: (bounds.size.width * 0.5), y: (bounds.size.height * 0.5))
         self.emitterSize = bounds.size
