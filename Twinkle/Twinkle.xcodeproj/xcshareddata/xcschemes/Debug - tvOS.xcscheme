@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "04DE41291C1E3463008153C4"
-               BuildableName = "TwinkleTV.app"
-               BlueprintName = "TwinkleTV"
+               BuildableName = "Twinkle_TV.app"
+               BlueprintName = "Twinkle_TV"
                ReferencedContainer = "container:Twinkle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "04DE41291C1E3463008153C4"
-            BuildableName = "TwinkleTV.app"
-            BlueprintName = "TwinkleTV"
+            BuildableName = "Twinkle_TV.app"
+            BlueprintName = "Twinkle_TV"
             ReferencedContainer = "container:Twinkle.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "04DE41291C1E3463008153C4"
-            BuildableName = "TwinkleTV.app"
-            BlueprintName = "TwinkleTV"
+            BuildableName = "Twinkle_TV.app"
+            BlueprintName = "Twinkle_TV"
             ReferencedContainer = "container:Twinkle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "04DE41291C1E3463008153C4"
-            BuildableName = "TwinkleTV.app"
-            BlueprintName = "TwinkleTV"
+            BuildableName = "Twinkle_TV.app"
+            BlueprintName = "Twinkle_TV"
             ReferencedContainer = "container:Twinkle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

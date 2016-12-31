@@ -22,13 +22,13 @@
 
 /* Begin PBXFileReference section */
 		046A4B801C1E3BD100E6CB2F /* Twinkle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Twinkle.swift; path = ../../Sources/Twinkle.swift; sourceTree = "<group>"; };
-		04DE412A1C1E3463008153C4 /* TwinkleTV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TwinkleTV.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		04DE412A1C1E3463008153C4 /* Twinkle_TV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twinkle_TV.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04DE412C1C1E3463008153C4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04DE412E1C1E3463008153C4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		04DE41331C1E3463008153C4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04DE41351C1E3463008153C4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06712F361A9DA43700C44371 /* TwinkleImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TwinkleImage.png; path = ../../Sources/Resources/TwinkleImage.png; sourceTree = "<group>"; };
-		06CBCA3C1A9DA31C00FD987B /* Twinkle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twinkle.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		06CBCA3C1A9DA31C00FD987B /* Twinkle_iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twinkle_iOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		06CBCA401A9DA31C00FD987B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		06CBCA411A9DA31C00FD987B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		06CBCA431A9DA31C00FD987B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,8 +107,8 @@
 		06CBCA3D1A9DA31C00FD987B /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				06CBCA3C1A9DA31C00FD987B /* Twinkle.app */,
-				04DE412A1C1E3463008153C4 /* TwinkleTV.app */,
+				06CBCA3C1A9DA31C00FD987B /* Twinkle_iOS.app */,
+				04DE412A1C1E3463008153C4 /* Twinkle_TV.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,9 +140,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		04DE41291C1E3463008153C4 /* TwinkleTV */ = {
+		04DE41291C1E3463008153C4 /* Twinkle_TV */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 04DE41361C1E3463008153C4 /* Build configuration list for PBXNativeTarget "TwinkleTV" */;
+			buildConfigurationList = 04DE41361C1E3463008153C4 /* Build configuration list for PBXNativeTarget "Twinkle_TV" */;
 			buildPhases = (
 				04DE41261C1E3463008153C4 /* Sources */,
 				04DE41271C1E3463008153C4 /* Frameworks */,
@@ -152,14 +152,14 @@
 			);
 			dependencies = (
 			);
-			name = TwinkleTV;
+			name = Twinkle_TV;
 			productName = TwinkleTV;
-			productReference = 04DE412A1C1E3463008153C4 /* TwinkleTV.app */;
+			productReference = 04DE412A1C1E3463008153C4 /* Twinkle_TV.app */;
 			productType = "com.apple.product-type.application";
 		};
-		06CBCA3B1A9DA31C00FD987B /* Twinkle */ = {
+		06CBCA3B1A9DA31C00FD987B /* Twinkle_iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 06CBCA5B1A9DA31C00FD987B /* Build configuration list for PBXNativeTarget "Twinkle" */;
+			buildConfigurationList = 06CBCA5B1A9DA31C00FD987B /* Build configuration list for PBXNativeTarget "Twinkle_iOS" */;
 			buildPhases = (
 				06CBCA381A9DA31C00FD987B /* Sources */,
 				06CBCA391A9DA31C00FD987B /* Frameworks */,
@@ -169,9 +169,9 @@
 			);
 			dependencies = (
 			);
-			name = Twinkle;
+			name = Twinkle_iOS;
 			productName = Twinkle;
-			productReference = 06CBCA3C1A9DA31C00FD987B /* Twinkle.app */;
+			productReference = 06CBCA3C1A9DA31C00FD987B /* Twinkle_iOS.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -207,8 +207,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				06CBCA3B1A9DA31C00FD987B /* Twinkle */,
-				04DE41291C1E3463008153C4 /* TwinkleTV */,
+				06CBCA3B1A9DA31C00FD987B /* Twinkle_iOS */,
+				04DE41291C1E3463008153C4 /* Twinkle_TV */,
 			);
 		};
 /* End PBXProject section */
@@ -421,7 +421,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		04DE41361C1E3463008153C4 /* Build configuration list for PBXNativeTarget "TwinkleTV" */ = {
+		04DE41361C1E3463008153C4 /* Build configuration list for PBXNativeTarget "Twinkle_TV" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				04DE41371C1E3463008153C4 /* Debug */,
@@ -439,7 +439,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		06CBCA5B1A9DA31C00FD987B /* Build configuration list for PBXNativeTarget "Twinkle" */ = {
+		06CBCA5B1A9DA31C00FD987B /* Build configuration list for PBXNativeTarget "Twinkle_iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				06CBCA5C1A9DA31C00FD987B /* Debug */,

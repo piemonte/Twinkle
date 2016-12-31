@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "06CBCA3B1A9DA31C00FD987B"
-               BuildableName = "Twinkle.app"
-               BlueprintName = "Twinkle"
+               BuildableName = "Twinkle_iOS.app"
+               BlueprintName = "Twinkle_iOS"
                ReferencedContainer = "container:Twinkle.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -47,8 +47,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "06CBCA3B1A9DA31C00FD987B"
-            BuildableName = "Twinkle.app"
-            BlueprintName = "Twinkle"
+            BuildableName = "Twinkle_iOS.app"
+            BlueprintName = "Twinkle_iOS"
             ReferencedContainer = "container:Twinkle.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -70,8 +70,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "06CBCA3B1A9DA31C00FD987B"
-            BuildableName = "Twinkle.app"
-            BlueprintName = "Twinkle"
+            BuildableName = "Twinkle_iOS.app"
+            BlueprintName = "Twinkle_iOS"
             ReferencedContainer = "container:Twinkle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -89,8 +89,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "06CBCA3B1A9DA31C00FD987B"
-            BuildableName = "Twinkle.app"
-            BlueprintName = "Twinkle"
+            BuildableName = "Twinkle_iOS.app"
+            BlueprintName = "Twinkle_iOS"
             ReferencedContainer = "container:Twinkle.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
