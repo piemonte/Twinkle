@@ -78,48 +78,23 @@ internal class TwinkleLayer: CAEmitterLayer {
     
     internal override init() {
         super.init()
-        
-        var twinkleImage: UIImage? = nil
-        let frameworkBundle = Bundle(for: self.classForCoder)
-        if let imagePath = frameworkBundle.path(forResource: "TwinkleImage", ofType: "png") {
-            twinkleImage = UIImage(contentsOfFile: imagePath)
-        }
-        
-        let emitterCells: [CAEmitterCell] = [CAEmitterCell(), CAEmitterCell()]
-        for cell in emitterCells {
-            cell.birthRate = 8
-            cell.lifetime = 1.25
-            cell.lifetimeRange = 0
-            cell.emissionRange = CGFloat(M_PI_4)
-            cell.velocity = 2
-            cell.velocityRange = 18
-            cell.scale = 0.65
-            cell.scaleRange = 0.7
-            cell.scaleSpeed = 0.6
-            cell.spin = 0.9
-            cell.spinRange = CGFloat(M_PI)
-            cell.color = UIColor(white: 1.0, alpha: 0.3).cgColor
-            cell.alphaSpeed = -0.8
-            cell.contents = twinkleImage?.cgImage
-            cell.magnificationFilter = TwinkleLayerMagnificationFilter
-            cell.minificationFilter = TwinkleLayerMinificationFilter
-            cell.isEnabled = true
-        }
-        self.emitterCells = emitterCells
-        self.emitterPosition = CGPoint(x: (bounds.size.width * 0.5), y: (bounds.size.height * 0.5))
-        self.emitterSize = bounds.size
-        self.emitterShape = TwinkleLayerEmitterShapeKey
-        self.emitterMode = TwinkleLayerEmitterModeKey
-        self.renderMode = TwinkleLayerRenderModeKey
+        self.commonInit()
     }
     
     internal required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-
+        self.commonInit()
+    }
+    
+    internal func commonInit(_ image: UIImage? = nil) {
         var twinkleImage: UIImage? = nil
-        let frameworkBundle = Bundle(for: self.classForCoder)
-        if let imagePath = frameworkBundle.path(forResource: "TwinkleImage", ofType: "png") {
-            twinkleImage = UIImage(contentsOfFile: imagePath)
+        if let customImage = image {
+            twinkleImage = customImage
+        } else {
+            let frameworkBundle = Bundle(for: self.classForCoder)
+            if let imagePath = frameworkBundle.path(forResource: "TwinkleImage", ofType: "png") {
+                twinkleImage = UIImage(contentsOfFile: imagePath)
+            }
         }
         
         let emitterCells: [CAEmitterCell] = [CAEmitterCell(), CAEmitterCell()]
