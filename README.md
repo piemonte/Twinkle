@@ -16,15 +16,8 @@ This library creates several CAEmitterLayers and animates them generating a spar
 
 ```ruby
 # CocoaPods
+swift_version = "3.0"
 pod "Twinkle", "~> 0.2.0"
-
-post_install do |installer|
-  installer.pods_project.targets.each do |target|
-    target.build_configurations.each do |config|
-      config.build_settings['SWIFT_VERSION'] = '3.0'
-    end
-  end
-end
 
 # Carthage
 github "piemonte/Twinkle" ~> 0.2.0
