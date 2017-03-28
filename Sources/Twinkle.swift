@@ -111,14 +111,14 @@ internal class TwinkleLayer: CAEmitterLayer {
             cell.birthRate = 8
             cell.lifetime = 1.25
             cell.lifetimeRange = 0
-            cell.emissionRange = CGFloat(M_PI_4)
+            cell.emissionRange = (.pi / 4)
             cell.velocity = 2
             cell.velocityRange = 18
             cell.scale = 0.65
             cell.scaleRange = 0.7
             cell.scaleSpeed = 0.6
             cell.spin = 0.9
-            cell.spinRange = CGFloat(M_PI)
+            cell.spinRange = .pi
             cell.color = UIColor(white: 1.0, alpha: 0.3).cgColor
             cell.alphaSpeed = -0.8
             cell.contents = twinkleImage?.cgImage
