@@ -46,7 +46,7 @@ public class Twinkle {
     ///   - view: UIView that will twinkle
     ///   - image: Optional twinkle image
     ///   - color: Optional color for the default twinkle image
-    public class func twinkle(_ view: UIView, image: UIImage? = nil) {
+    public class func twinkle(_ view: UIView, image: UIImage? = nil, infiniteRepeat: Bool? = false) {
         var twinkleLayers: [TwinkleLayer] = []
         
         let upperBound: UInt32 = 10
@@ -64,7 +64,7 @@ public class Twinkle {
             
             twinkleLayer.addPositionAnimation()
             twinkleLayer.addRotationAnimation()
-            twinkleLayer.addFadeInOutAnimation( CACurrentMediaTime() + CFTimeInterval(0.15 * Float(i)) )
+            twinkleLayer.addFadeInOutAnimation( CACurrentMediaTime() + CFTimeInterval(0.15 * Float(i)), isInfinite: infiniteRepeat )
         }
         
         twinkleLayers.removeAll(keepingCapacity: false)
@@ -142,9 +142,9 @@ fileprivate let TwinkleLayerTransformAnimationKey = "transformAnimation"
 fileprivate let TwinkleLayerOpacityAnimationKey = "opacityAnimation"
 
 extension TwinkleLayer {
-
+    
     // MARK: animation support
-
+    
     internal func addPositionAnimation() {
         CATransaction.begin()
         let keyFrameAnim = CAKeyframeAnimation(keyPath: "position")
@@ -178,13 +178,18 @@ extension TwinkleLayer {
         CATransaction.commit()
     }
     
-    internal func addFadeInOutAnimation(_ beginTime: CFTimeInterval) {
+    internal func addFadeInOutAnimation(_ beginTime: CFTimeInterval, isInfinite: Bool? = false) {
         CATransaction.begin()
         let fadeAnimation: CABasicAnimation = CABasicAnimation(keyPath: "opacity")
         fadeAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         fadeAnimation.fromValue = 0
         fadeAnimation.toValue = 1
-        fadeAnimation.repeatCount = 2
+        if isInfinite! {
+            fadeAnimation.repeatCount = .infinity
+        } else {
+            fadeAnimation.repeatCount = 2
+        }
+        
         fadeAnimation.autoreverses = true // fade in then out
         fadeAnimation.duration = 0.4
         fadeAnimation.fillMode = kCAFillModeForwards
