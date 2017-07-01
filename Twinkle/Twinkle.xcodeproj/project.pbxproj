@@ -97,8 +97,8 @@
 		06712F321A9DA41A00C44371 /* Twinkle */ = {
 			isa = PBXGroup;
 			children = (
-				06712F351A9DA42F00C44371 /* Resources */,
 				046A4B801C1E3BD100E6CB2F /* Twinkle.swift */,
+				06712F351A9DA42F00C44371 /* Resources */,
 			);
 			path = Twinkle;
 			sourceTree = "<group>";
@@ -597,6 +597,7 @@
 				06DE658E1E18295D00C064DE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
