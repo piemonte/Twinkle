@@ -46,7 +46,7 @@ public class Twinkle {
     ///   - view: UIView that will twinkle
     ///   - image: Optional twinkle image
     ///   - color: Optional color for the default twinkle image
-    public class func twinkle(_ view: UIView, image: UIImage? = nil, infiniteRepeat: Bool? = false) {
+    public class func twinkle(_ view: UIView, image: UIImage? = nil) {
         var twinkleLayers: [TwinkleLayer] = []
         
         let upperBound: UInt32 = 10
@@ -64,7 +64,7 @@ public class Twinkle {
             
             twinkleLayer.addPositionAnimation()
             twinkleLayer.addRotationAnimation()
-            twinkleLayer.addFadeInOutAnimation( CACurrentMediaTime() + CFTimeInterval(0.15 * Float(i)), isInfinite: infiniteRepeat )
+            twinkleLayer.addFadeInOutAnimation( CACurrentMediaTime() + CFTimeInterval(0.15 * Float(i)))
         }
         
         twinkleLayers.removeAll(keepingCapacity: false)
@@ -178,17 +178,13 @@ extension TwinkleLayer {
         CATransaction.commit()
     }
     
-    internal func addFadeInOutAnimation(_ beginTime: CFTimeInterval, isInfinite: Bool? = false) {
+    internal func addFadeInOutAnimation(_ beginTime: CFTimeInterval) {
         CATransaction.begin()
         let fadeAnimation: CABasicAnimation = CABasicAnimation(keyPath: "opacity")
         fadeAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
         fadeAnimation.fromValue = 0
         fadeAnimation.toValue = 1
-        if isInfinite! {
-            fadeAnimation.repeatCount = .infinity
-        } else {
-            fadeAnimation.repeatCount = 2
-        }
+        fadeAnimation.repeatCount = 2
         
         fadeAnimation.autoreverses = true // fade in then out
         fadeAnimation.duration = 0.4
