@@ -60,7 +60,7 @@ class ViewController: UIViewController {
     
     // MARK: UIButton handler
     
-    func handleButton(_ button: UIButton!) {
+    @objc func handleButton(_ button: UIButton!) {
         button.twinkle()
     }
 }

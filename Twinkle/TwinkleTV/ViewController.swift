@@ -66,7 +66,7 @@ class ViewController: UIViewController {
     
     // MARK: UIButton handler
     
-    func handleTap(_ button: UITapGestureRecognizer!) {
+    @objc func handleTap(_ button: UITapGestureRecognizer!) {
         textLabel.twinkle()
     }
 }

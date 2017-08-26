@@ -12,15 +12,13 @@ This library creates several CAEmitterLayers and animates them generating a spar
 
 `Twinkle` is available and recommended for installation using the Cocoa dependency manager [CocoaPods](http://cocoapods.org/). You can also simply copy the `Twinkle.swift` file into your Xcode project.
 
-## Xcode 8 & Swift 3
-
 ```ruby
 # CocoaPods
-swift_version = "3.0"
-pod "Twinkle", "~> 0.2.0"
+swift_version = "4.0"
+pod "Twinkle", "~> 0.3.0"
 
 # Carthage
-github "piemonte/Twinkle" ~> 0.2.0
+github "piemonte/Twinkle" ~> 0.3.0
 
 # SwiftPM
 let package = Package(
@@ -28,16 +26,6 @@ let package = Package(
         .Package(url: "https://github.com/piemonte/Twinkle", majorVersion: 0)
     ]
 )
-```
-
-## Xcode 8 & Swift 2.3 or Xcode 7
-
-```ruby
-# CocoaPods
-pod "Twinkle", "~> 0.1.1"
-
-# Carthage
-github "piemonte/Twinkle" ~> 0.1.1
 ```
 
 ## Usage
