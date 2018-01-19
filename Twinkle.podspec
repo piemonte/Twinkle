@@ -12,5 +12,6 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/*.swift'
   s.resources = 'Sources/Resources/*.png'
   s.requires_arc = true
+  s.swift_version = '4.0'
   s.screenshot = "https://raw.github.com/piemonte/Twinkle/master/twinkle.gif"
 end
