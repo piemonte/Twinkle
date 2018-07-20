@@ -6,6 +6,8 @@
 
 This library creates several CAEmitterLayers and animates them generating a sparkle effect.
 
+A version of Twinkle is also [available for Android](https://github.com/dev-labs-bg/twinkle).
+
 [![Build Status](https://travis-ci.org/piemonte/Twinkle.svg?branch=master)](https://travis-ci.org/piemonte/Twinkle) [![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/) [![Swift Version](https://img.shields.io/badge/language-swift%204.0-brightgreen.svg)](https://developer.apple.com/swift) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Twinkle/blob/master/LICENSE)
 
 # Quick Start
@@ -57,6 +59,7 @@ The sample project provides an example of how to integrate `Twinkle`, otherwise 
 
 * [Core Animation Reference Collection](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/CoreAnimation_framework/index.html)
 * [Swift Evolution](https://github.com/apple/swift-evolution)
+* [Twinkle for Android](https://github.com/dev-labs-bg/twinkle)
 * [Shimmer](https://github.com/facebook/shimmer)
 * [Blurry](https://github.com/piemonte/Blurry)
 
