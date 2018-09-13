@@ -47,12 +47,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.view.autoresizingMask = ([UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight])
+        self.view.autoresizingMask = ([.flexibleWidth, .flexibleHeight])
         self.view.backgroundColor = UIColor(red: 81/255, green: 0, blue: 97/255, alpha: 1)
         
         let button: UIButton = UIButton(frame: CGRect(x: 0, y: 0, width: 240, height: 50))
         button.center = self.view.center
-        button.setTitle("Tap to Twinkle", for: UIControlState())
+        button.setTitle("Tap to Twinkle", for: .normal)
         button.titleLabel!.font = UIFont(name: "AvenirNext-Regular", size: 32)
         button.addTarget(self, action: #selector(ViewController.handleButton(_:)), for: .touchUpInside)
         self.view.addSubview(button)

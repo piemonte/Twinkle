@@ -49,11 +49,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.autoresizingMask = ([UIViewAutoresizing.flexibleWidth, UIViewAutoresizing.flexibleHeight])
+        self.view.autoresizingMask = ([UIView.AutoresizingMask.flexibleWidth, UIView.AutoresizingMask.flexibleHeight])
         self.view.backgroundColor = UIColor(red: 81/255, green: 0, blue: 97/255, alpha: 1)
         
         let tapGestureRecognizer: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(ViewController.handleTap(_:)))
-        tapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPressType.playPause.rawValue)];
+        tapGestureRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.playPause.rawValue)];
         self.view.addGestureRecognizer(tapGestureRecognizer)
         
         textLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 800, height: 150))

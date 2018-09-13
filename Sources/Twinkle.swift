@@ -29,9 +29,6 @@ import UIKit
 import Foundation
 import CoreGraphics
 
-private let TwinkleLayerEmitterShapeKey = "circle"
-private let TwinkleLayerEmitterModeKey = "surface"
-private let TwinkleLayerRenderModeKey = "unordered"
 private let TwinkleLayerMagnificationFilter = "linear"
 private let TwinkleLayerMinificationFilter = "trilinear"
 
@@ -130,9 +127,9 @@ internal class TwinkleLayer: CAEmitterLayer {
         self.emitterCells = emitterCells
         self.emitterPosition = CGPoint(x: (bounds.size.width * 0.5), y: (bounds.size.height * 0.5))
         self.emitterSize = bounds.size
-        self.emitterShape = TwinkleLayerEmitterShapeKey
-        self.emitterMode = TwinkleLayerEmitterModeKey
-        self.renderMode = TwinkleLayerRenderModeKey
+        self.emitterShape = CAEmitterLayerEmitterShape.circle
+        self.emitterMode = CAEmitterLayerEmitterMode.surface
+        self.renderMode = CAEmitterLayerRenderMode.unordered
     }
     
 }
@@ -167,7 +164,7 @@ extension TwinkleLayer {
         CATransaction.begin()
         let keyFrameAnim = CAKeyframeAnimation(keyPath: "transform")
         keyFrameAnim.duration = 0.3
-        keyFrameAnim.valueFunction = CAValueFunction(name: kCAValueFunctionRotateZ)
+        keyFrameAnim.valueFunction = CAValueFunction(name: CAValueFunctionName.rotateZ)
         keyFrameAnim.isAdditive = true
         keyFrameAnim.repeatCount = MAXFLOAT
         keyFrameAnim.isRemovedOnCompletion = false
@@ -181,14 +178,14 @@ extension TwinkleLayer {
     internal func addFadeInOutAnimation(_ beginTime: CFTimeInterval) {
         CATransaction.begin()
         let fadeAnimation: CABasicAnimation = CABasicAnimation(keyPath: "opacity")
-        fadeAnimation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        fadeAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
         fadeAnimation.fromValue = 0
         fadeAnimation.toValue = 1
         fadeAnimation.repeatCount = 2
         
         fadeAnimation.autoreverses = true // fade in then out
         fadeAnimation.duration = 0.4
-        fadeAnimation.fillMode = kCAFillModeForwards
+        fadeAnimation.fillMode = CAMediaTimingFillMode.forwards
         fadeAnimation.beginTime = beginTime
         CATransaction.setCompletionBlock({
             self.removeFromSuperlayer()

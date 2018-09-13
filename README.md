@@ -8,7 +8,11 @@ This library creates several CAEmitterLayers and animates them generating a spar
 
 A version of Twinkle is also [available for Android](https://github.com/dev-labs-bg/twinkle).
 
-[![Build Status](https://travis-ci.org/piemonte/Twinkle.svg?branch=master)](https://travis-ci.org/piemonte/Twinkle) [![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/) [![Swift Version](https://img.shields.io/badge/language-swift%204.0-brightgreen.svg)](https://developer.apple.com/swift) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Twinkle/blob/master/LICENSE)
+[![Build Status](https://travis-ci.org/piemonte/Twinkle.svg?branch=master)](https://travis-ci.org/piemonte/Twinkle) [![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/) [![Swift Version](https://img.shields.io/badge/language-swift%204.2-brightgreen.svg)](https://developer.apple.com/swift) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Twinkle/blob/master/LICENSE)
+
+Need a different version of Swift?
+* `4.2` - Target your Podfile to the latest release or master
+* `4.0` - Target your Podfile to the `swift4.0` branch
 
 # Quick Start
 
@@ -16,11 +20,11 @@ A version of Twinkle is also [available for Android](https://github.com/dev-labs
 
 ```ruby
 # CocoaPods
-swift_version = "4.0"
-pod "Twinkle", "~> 0.3.0"
+swift_version = "4.2"
+pod "Twinkle", "~> 0.4.0"
 
 # Carthage
-github "piemonte/Twinkle" ~> 0.3.0
+github "piemonte/Twinkle" ~> 0.4.0
 
 # SwiftPM
 let package = Package(
