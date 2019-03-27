@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'Twinkle'
-  s.version = '0.4.0'
+  s.version = '0.5.0'
   s.license = 'MIT'
   s.summary = 'Swift and easy way to make elements in your iOS or tvOS app twinkle'
   s.homepage = 'https://github.com/piemonte/twinkle'
@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
   s.source_files = 'Sources/*.swift'
   s.resources = 'Sources/Resources/*.png'
   s.requires_arc = true
-  s.swift_version = '4.2'
+  s.swift_version = '5.0'
   s.screenshot = "https://raw.github.com/piemonte/Twinkle/master/twinkle.gif"
 end
