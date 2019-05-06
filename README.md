@@ -8,12 +8,13 @@ This library creates several CAEmitterLayers and animates them generating a spar
 
 A version of Twinkle is also [available for Android](https://github.com/dev-labs-bg/twinkle).
 
+If you like Twinkle, you may also like [Burst](https://github.com/piemonte/Burst).
+
 [![Build Status](https://travis-ci.org/piemonte/Twinkle.svg?branch=master)](https://travis-ci.org/piemonte/Twinkle) [![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/) [![Swift Version](https://img.shields.io/badge/language-swift%205.0-brightgreen.svg)](https://developer.apple.com/swift) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Twinkle/blob/master/LICENSE)
 
 Need a different version of Swift?
 * `5.0` - Target your Podfile to the latest release or master
 * `4.2` - Target your Podfile to the `swift4.2` branch
-* `4.0` - Target your Podfile to the `swift4.0` branch
 
 # Quick Start
 
@@ -64,6 +65,7 @@ The sample project provides an example of how to integrate `Twinkle`, otherwise 
 * [Core Animation Reference Collection](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/CoreAnimation_framework/index.html)
 * [Swift Evolution](https://github.com/apple/swift-evolution)
 * [Twinkle for Android](https://github.com/dev-labs-bg/twinkle)
+* [Burst](https://github.com/piemonte/Burst)
 * [Shimmer](https://github.com/facebook/shimmer)
 * [Blurry](https://github.com/piemonte/Blurry)
 
