@@ -64,6 +64,7 @@ The sample project provides an example of how to integrate `Twinkle`, otherwise 
 
 * [Core Animation Reference Collection](https://developer.apple.com/library/ios/documentation/Cocoa/Reference/CoreAnimation_framework/index.html)
 * [Swift Evolution](https://github.com/apple/swift-evolution)
+* [CAEmitterLayer – NSHipster](https://nshipster.com/caemitterlayer/)
 * [Twinkle for Android](https://github.com/dev-labs-bg/twinkle)
 * [Burst](https://github.com/piemonte/Burst)
 * [Shimmer](https://github.com/facebook/shimmer)
