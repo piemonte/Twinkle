@@ -10,7 +10,7 @@ A version of Twinkle is also [available for Android](https://github.com/dev-labs
 
 If you like Twinkle, you may also like [Burst](https://github.com/piemonte/Burst).
 
-[![Build Status](https://travis-ci.org/piemonte/Twinkle.svg?branch=master)](https://travis-ci.com/piemonte/Twinkle) [![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/) [![Swift Version](https://img.shields.io/badge/language-swift%205.0-brightgreen.svg)](https://developer.apple.com/swift) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Twinkle/blob/master/LICENSE)
+[![Build Status](https://travis-ci.com/piemonte/Twinkle.svg?branch=master)](https://travis-ci.com/piemonte/Twinkle) [![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/) [![Swift Version](https://img.shields.io/badge/language-swift%205.0-brightgreen.svg)](https://developer.apple.com/swift) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Twinkle/blob/master/LICENSE)
 
 Need a different version of Swift?
 * `5.0` - Target your Podfile to the latest release or master
