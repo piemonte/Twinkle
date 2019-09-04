@@ -10,6 +10,9 @@
 		046A4B811C1E3BD100E6CB2F /* Twinkle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046A4B801C1E3BD100E6CB2F /* Twinkle.swift */; };
 		046A4B821C1E3BD100E6CB2F /* Twinkle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046A4B801C1E3BD100E6CB2F /* Twinkle.swift */; };
 		046A4B831C1E481700E6CB2F /* TwinkleImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 06712F361A9DA43700C44371 /* TwinkleImage.png */; };
+		049BC7AD231DB88100DBFA37 /* Twinkle.swift in Headers */ = {isa = PBXBuildFile; fileRef = 046A4B801C1E3BD100E6CB2F /* Twinkle.swift */; settings = {ATTRIBUTES = (Public, ); }; };
+		049BC7AE231DB8C500DBFA37 /* Twinkle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 046A4B801C1E3BD100E6CB2F /* Twinkle.swift */; };
+		049BC7AF231DB8CB00DBFA37 /* TwinkleImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 06712F361A9DA43700C44371 /* TwinkleImage.png */; };
 		04DE412D1C1E3463008153C4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE412C1C1E3463008153C4 /* AppDelegate.swift */; };
 		04DE412F1C1E3463008153C4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DE412E1C1E3463008153C4 /* ViewController.swift */; };
 		04DE41341C1E3463008153C4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04DE41331C1E3463008153C4 /* Assets.xcassets */; };
@@ -183,6 +186,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049BC7AD231DB88100DBFA37 /* Twinkle.swift in Headers */,
 				06DE658C1E18295D00C064DE /* Twinkle.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -249,7 +253,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 1020;
+				LastUpgradeCheck = 1030;
 				ORGANIZATIONNAME = patrickpiemonte;
 				TargetAttributes = {
 					04DE41291C1E3463008153C4 = {
@@ -311,6 +315,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049BC7AF231DB8CB00DBFA37 /* TwinkleImage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +346,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				049BC7AE231DB8C500DBFA37 /* Twinkle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,14 +409,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -448,14 +462,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -510,7 +532,7 @@
 			buildSettings = {
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				DEFINES_MODULE = YES;
