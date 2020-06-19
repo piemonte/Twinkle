@@ -1,5 +1,19 @@
+// swift-tools-version:5.0
 import PackageDescription
 
 let package = Package(
-    name: "Twinkle"
+    name: "Twinkle",
+    platforms: [
+      .iOS(.v10)
+    ],
+    products: [
+      .library(name: "Twinkle", targets: ["Twinkle"])
+    ],
+    targets: [
+      .target(
+          name: "Twinkle",
+          path: "Sources"
+      )
+    ],
+    swiftLanguageVersions: [.v5]
 )
