@@ -42,18 +42,29 @@ let package = Package(
 The sample project provides an example of how to integrate `Twinkle`, otherwise you can follow this example.
 
 ``` Swift
-   import Twinkle
+import Twinkle
 ```
 
 ``` Swift
+// Basic usage with UIView extension
+let view = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
+self.view.addSubview(view)
+view.twinkle()
 
-   // using the UIView extension
-   let view: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 150, height: 50))
-   self.view.addSubview(view)
-   view.twinkle()
+// With custom configuration
+var config = Twinkle.Configuration()
+config.minCount = 10
+config.maxCount = 20
+config.birthRate = 12
+config.scale = 0.8
+view.twinkle(configuration: config)
 
-   // using the class func
-   Twinkle.twinkle(myView)
+// With custom image
+let customImage = UIImage(named: "star")
+view.twinkle(image: customImage)
+
+// Using the static method
+Twinkle.twinkle(myView, configuration: config)
 ```
 
 ## Community

@@ -29,192 +29,211 @@ import UIKit
 import Foundation
 import CoreGraphics
 
-private let TwinkleLayerMagnificationFilter = "linear"
-private let TwinkleLayerMinificationFilter = "trilinear"
-
 // MARK: - Twinkle
 
 /// ✨ Twinkle, a Swift and easy way to make any UIView twinkle.
-public class Twinkle {
+@MainActor
+public enum Twinkle {
+    
+    /// Configuration for twinkle appearance and behavior
+    public struct Configuration {
+        public var minCount: Int = 5
+        public var maxCount: Int = 10
+        public var birthRate: Float = 8
+        public var lifetime: Float = 1.25
+        public var velocity: CGFloat = 2
+        public var velocityRange: CGFloat = 18
+        public var scale: CGFloat = 0.65
+        public var scaleRange: CGFloat = 0.7
+        public var scaleSpeed: CGFloat = 0.6
+        public var spin: CGFloat = 0.9
+        public var spinRange: CGFloat = .pi
+        public var alphaSpeed: Float = -0.8
+        public var fadeInDuration: TimeInterval = 0.4
+        public var positionAnimationDuration: TimeInterval = 0.3
+        public var rotationAnimationDuration: TimeInterval = 0.3
+        
+        public init() {}
+    }
     
     /// Casts a spell on the provided view allowing it to twinkle.
     ///
     /// - Parameters:
     ///   - view: UIView that will twinkle
     ///   - image: Optional twinkle image
-    ///   - color: Optional color for the default twinkle image
-    public class func twinkle(_ view: UIView, image: UIImage? = nil) {
-        var twinkleLayers: [TwinkleLayer] = []
+    ///   - configuration: Configuration for twinkle behavior
+    public static func twinkle(_ view: UIView, image: UIImage? = nil, configuration: Configuration = Configuration()) {
+        let count = Int.random(in: configuration.minCount...configuration.maxCount)
         
-        let upperBound: UInt32 = 10
-        let lowerBound: UInt32 = 5
-        let count: UInt = UInt(arc4random_uniform(upperBound) + lowerBound)
-        
-        for i in 0..<count {
-            let twinkleLayer: TwinkleLayer = image == nil ? TwinkleLayer() : TwinkleLayer(image: image!)
-            let x: Int = Int(arc4random_uniform(UInt32(view.layer.bounds.size.width)))
-            let y: Int = Int(arc4random_uniform(UInt32(view.layer.bounds.size.height)))
-            twinkleLayer.position = CGPoint(x: CGFloat(x), y: CGFloat(y))
+        let twinkleLayers = (0..<count).compactMap { index -> TwinkleLayer? in
+            let twinkleLayer = TwinkleLayer(image: image, configuration: configuration)
+            let x = CGFloat.random(in: 0..<view.bounds.width)
+            let y = CGFloat.random(in: 0..<view.bounds.height)
+            twinkleLayer.position = CGPoint(x: x, y: y)
             twinkleLayer.opacity = 0
-            twinkleLayers.append(twinkleLayer)
-            view.layer.addSublayer(twinkleLayer)
-            
-            twinkleLayer.addPositionAnimation()
-            twinkleLayer.addRotationAnimation()
-            twinkleLayer.addFadeInOutAnimation( CACurrentMediaTime() + CFTimeInterval(0.15 * Float(i)))
+            return twinkleLayer
         }
         
-        twinkleLayers.removeAll(keepingCapacity: false)
+        twinkleLayers.forEach { layer in
+            view.layer.addSublayer(layer)
+            layer.addAnimations(beginTime: CACurrentMediaTime() + TimeInterval(0.15 * Float(twinkleLayers.firstIndex(where: { $0 === layer }) ?? 0)))
+        }
     }
-    
 }
 
 // MARK: - TwinkleLayer
 
-internal class TwinkleLayer: CAEmitterLayer {
+@MainActor
+internal final class TwinkleLayer: CAEmitterLayer {
+    
+    private let configuration: Twinkle.Configuration
     
     // MARK: object lifecycle
     
-    internal convenience init(image: UIImage) {
-        self.init()
-        self.commonInit(image)
-    }
-    
-    internal override init() {
+    internal init(image: UIImage? = nil, configuration: Twinkle.Configuration = Twinkle.Configuration()) {
+        self.configuration = configuration
         super.init()
-        self.commonInit()
+        self.setupEmitter(with: image)
     }
     
     internal required init?(coder aDecoder: NSCoder) {
+        self.configuration = Twinkle.Configuration()
         super.init(coder: aDecoder)
-        self.commonInit()
+        self.setupEmitter()
     }
     
-    internal func commonInit(_ image: UIImage? = nil) {
-        var twinkleImage: UIImage? = nil
-        if let customImage = image {
-            twinkleImage = customImage
-        } else {
-            let frameworkBundle = Bundle(for: self.classForCoder)
-            if let imagePath = frameworkBundle.path(forResource: "TwinkleImage", ofType: "png") {
-                twinkleImage = UIImage(contentsOfFile: imagePath)
+    private func setupEmitter(with customImage: UIImage? = nil) {
+        let twinkleImage: UIImage? = customImage ?? {
+            guard let resourcePath = Bundle.module.path(forResource: "TwinkleImage", ofType: "png") else {
+                return nil
             }
-        }
+            return UIImage(contentsOfFile: resourcePath)
+        }()
         
-        self.emitterCells?.removeAll()
-        
-        let emitterCells: [CAEmitterCell] = [CAEmitterCell(), CAEmitterCell()]
-        for cell in emitterCells {
-            cell.birthRate = 8
-            cell.lifetime = 1.25
+        let emitterCells = (0..<2).map { _ -> CAEmitterCell in
+            let cell = CAEmitterCell()
+            cell.birthRate = configuration.birthRate
+            cell.lifetime = configuration.lifetime
             cell.lifetimeRange = 0
             cell.emissionRange = (.pi / 4)
-            cell.velocity = 2
-            cell.velocityRange = 18
-            cell.scale = 0.65
-            cell.scaleRange = 0.7
-            cell.scaleSpeed = 0.6
-            cell.spin = 0.9
-            cell.spinRange = .pi
+            cell.velocity = configuration.velocity
+            cell.velocityRange = configuration.velocityRange
+            cell.scale = configuration.scale
+            cell.scaleRange = configuration.scaleRange
+            cell.scaleSpeed = configuration.scaleSpeed
+            cell.spin = configuration.spin
+            cell.spinRange = configuration.spinRange
             cell.color = UIColor(white: 1.0, alpha: 0.3).cgColor
-            cell.alphaSpeed = -0.8
+            cell.alphaSpeed = configuration.alphaSpeed
             cell.contents = twinkleImage?.cgImage
-            cell.magnificationFilter = TwinkleLayerMagnificationFilter
-            cell.minificationFilter = TwinkleLayerMinificationFilter
+            cell.magnificationFilter = CALayerContentsFilter.linear.rawValue
+            cell.minificationFilter = CALayerContentsFilter.trilinear.rawValue
             cell.isEnabled = true
+            return cell
         }
         
         self.emitterCells = emitterCells
-        self.emitterPosition = CGPoint(x: (bounds.size.width * 0.5), y: (bounds.size.height * 0.5))
+        self.emitterPosition = CGPoint(x: bounds.midX, y: bounds.midY)
         self.emitterSize = bounds.size
-        self.emitterShape = CAEmitterLayerEmitterShape.circle
-        self.emitterMode = CAEmitterLayerEmitterMode.surface
-        self.renderMode = CAEmitterLayerRenderMode.unordered
+        self.emitterShape = .circle
+        self.emitterMode = .surface
+        self.renderMode = .unordered
     }
     
+    override init(layer: Any) {
+        if let layer = layer as? TwinkleLayer {
+            self.configuration = layer.configuration
+        } else {
+            self.configuration = Twinkle.Configuration()
+        }
+        super.init(layer: layer)
+    }
 }
 
-fileprivate let TwinkleLayerPositionAnimationKey = "positionAnimation"
-fileprivate let TwinkleLayerTransformAnimationKey = "transformAnimation"
-fileprivate let TwinkleLayerOpacityAnimationKey = "opacityAnimation"
+// MARK: - Animations
 
 extension TwinkleLayer {
     
-    // MARK: animation support
-    
-    internal func addPositionAnimation() {
-        CATransaction.begin()
-        let keyFrameAnim = CAKeyframeAnimation(keyPath: "position")
-        keyFrameAnim.duration = 0.3
-        keyFrameAnim.isAdditive = true
-        keyFrameAnim.repeatCount = .greatestFiniteMagnitude
-        keyFrameAnim.isRemovedOnCompletion = false
-        keyFrameAnim.beginTime = CFTimeInterval(arc4random_uniform(1000) + 1) * 0.2 * 0.25 // random start time, non-zero
-        let points: [NSValue] = [NSValue(cgPoint: CGPoint.random(0.25)),
-                                 NSValue(cgPoint: CGPoint.random(0.25)),
-                                 NSValue(cgPoint: CGPoint.random(0.25)),
-                                 NSValue(cgPoint: CGPoint.random(0.25)),
-                                 NSValue(cgPoint: CGPoint.random(0.25))]
-        keyFrameAnim.values = points
-        self.add(keyFrameAnim, forKey: TwinkleLayerPositionAnimationKey)
-        CATransaction.commit()
+    func addAnimations(beginTime: CFTimeInterval) {
+        addPositionAnimation()
+        addRotationAnimation()
+        addFadeInOutAnimation(beginTime)
     }
     
-    internal func addRotationAnimation() {
-        CATransaction.begin()
-        let keyFrameAnim = CAKeyframeAnimation(keyPath: "transform")
-        keyFrameAnim.duration = 0.3
-        keyFrameAnim.valueFunction = CAValueFunction(name: CAValueFunctionName.rotateZ)
-        keyFrameAnim.isAdditive = true
-        keyFrameAnim.repeatCount = .greatestFiniteMagnitude
-        keyFrameAnim.isRemovedOnCompletion = false
-        keyFrameAnim.beginTime = CFTimeInterval(arc4random_uniform(1000) + 1) * 0.2 * 0.25 // random start time, non-zero
-        let radians: Float = 0.104 // ~6 degrees
-        keyFrameAnim.values = [-radians, radians, -radians]
-        self.add(keyFrameAnim, forKey: TwinkleLayerTransformAnimationKey)
-        CATransaction.commit()
-    }
-    
-    internal func addFadeInOutAnimation(_ beginTime: CFTimeInterval) {
-        CATransaction.begin()
-        let fadeAnimation: CABasicAnimation = CABasicAnimation(keyPath: "opacity")
-        fadeAnimation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-        fadeAnimation.fromValue = 0
-        fadeAnimation.toValue = 1
-        fadeAnimation.repeatCount = 2
+    private func addPositionAnimation() {
+        let animation = CAKeyframeAnimation(keyPath: "position")
+        animation.duration = configuration.positionAnimationDuration
+        animation.isAdditive = true
+        animation.repeatCount = .greatestFiniteMagnitude
+        animation.isRemovedOnCompletion = false
+        animation.beginTime = CFTimeInterval.random(in: 0.2...1.0) * 0.25
         
-        fadeAnimation.autoreverses = true // fade in then out
-        fadeAnimation.duration = 0.4
-        fadeAnimation.fillMode = CAMediaTimingFillMode.forwards
-        fadeAnimation.beginTime = beginTime
-        CATransaction.setCompletionBlock({
-            self.removeFromSuperlayer()
-        })
-        self.add(fadeAnimation, forKey: TwinkleLayerOpacityAnimationKey)
+        let range: CGFloat = 0.25
+        animation.values = (0..<5).map { _ in
+            NSValue(cgPoint: CGPoint(
+                x: CGFloat.random(in: -range...range),
+                y: CGFloat.random(in: -range...range)
+            ))
+        }
+        
+        add(animation, forKey: "twinkle.position")
+    }
+    
+    private func addRotationAnimation() {
+        let animation = CAKeyframeAnimation(keyPath: "transform")
+        animation.duration = configuration.rotationAnimationDuration
+        animation.valueFunction = CAValueFunction(name: .rotateZ)
+        animation.isAdditive = true
+        animation.repeatCount = .greatestFiniteMagnitude
+        animation.isRemovedOnCompletion = false
+        animation.beginTime = CFTimeInterval.random(in: 0.2...1.0) * 0.25
+        
+        let radians: CGFloat = 0.104
+        animation.values = [-radians, radians, -radians]
+        
+        add(animation, forKey: "twinkle.rotation")
+    }
+    
+    private func addFadeInOutAnimation(_ beginTime: CFTimeInterval) {
+        let animation = CABasicAnimation(keyPath: "opacity")
+        animation.timingFunction = CAMediaTimingFunction(name: .easeInEaseOut)
+        animation.fromValue = 0
+        animation.toValue = 1
+        animation.repeatCount = 2
+        animation.autoreverses = true
+        animation.duration = configuration.fadeInDuration
+        animation.fillMode = .forwards
+        animation.beginTime = beginTime
+        animation.isRemovedOnCompletion = false
+        
+        CATransaction.begin()
+        CATransaction.setCompletionBlock { [weak self] in
+            self?.removeFromSuperlayer()
+        }
+        add(animation, forKey: "twinkle.opacity")
         CATransaction.commit()
     }
-    
 }
 
-// MARK: - CGPoint
-
-extension CGPoint {
-    
-    internal static func random(_ range: Float) -> CGPoint {
-        let x = Int(-range + (Float(arc4random_uniform(1000)) / 1000.0) * 2.0 * range)
-        let y = Int(-range + (Float(arc4random_uniform(1000)) / 1000.0) * 2.0 * range)
-        return CGPoint(x: x, y: y)
-    }
-    
-}
-
-// MARK: - UIView
+// MARK: - UIView Extension
 
 extension UIView {
     
     /// UIView extension that provides a convenient means for triggering a twinkle effect.
-    public func twinkle() {
-        Twinkle.twinkle(self)
+    @MainActor
+    public func twinkle(image: UIImage? = nil, configuration: Twinkle.Configuration = Twinkle.Configuration()) {
+        Twinkle.twinkle(self, image: image, configuration: configuration)
     }
-    
+}
+
+// MARK: - Bundle Extension
+
+extension Bundle {
+    static var module: Bundle {
+        #if SWIFT_PACKAGE
+        return Bundle.module
+        #else
+        return Bundle(for: TwinkleLayer.self)
+        #endif
+    }
 }
