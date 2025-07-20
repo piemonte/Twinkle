@@ -147,7 +147,7 @@ extension TwinkleLayer {
         let keyFrameAnim = CAKeyframeAnimation(keyPath: "position")
         keyFrameAnim.duration = 0.3
         keyFrameAnim.isAdditive = true
-        keyFrameAnim.repeatCount = MAXFLOAT
+        keyFrameAnim.repeatCount = .greatestFiniteMagnitude
         keyFrameAnim.isRemovedOnCompletion = false
         keyFrameAnim.beginTime = CFTimeInterval(arc4random_uniform(1000) + 1) * 0.2 * 0.25 // random start time, non-zero
         let points: [NSValue] = [NSValue(cgPoint: CGPoint.random(0.25)),
@@ -166,7 +166,7 @@ extension TwinkleLayer {
         keyFrameAnim.duration = 0.3
         keyFrameAnim.valueFunction = CAValueFunction(name: CAValueFunctionName.rotateZ)
         keyFrameAnim.isAdditive = true
-        keyFrameAnim.repeatCount = MAXFLOAT
+        keyFrameAnim.repeatCount = .greatestFiniteMagnitude
         keyFrameAnim.isRemovedOnCompletion = false
         keyFrameAnim.beginTime = CFTimeInterval(arc4random_uniform(1000) + 1) * 0.2 * 0.25 // random start time, non-zero
         let radians: Float = 0.104 // ~6 degrees

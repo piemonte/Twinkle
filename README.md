@@ -10,11 +10,13 @@ A version of Twinkle is also [available for Android](https://github.com/dev-labs
 
 If you like Twinkle, you may also like [Burst](https://github.com/piemonte/Burst).
 
-[![Build Status](https://travis-ci.com/piemonte/Twinkle.svg?branch=master)](https://travis-ci.com/piemonte/Twinkle) [![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Swift Version](https://img.shields.io/badge/language-swift%205.0-brightgreen.svg)](https://developer.apple.com/swift) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Twinkle/blob/master/LICENSE)
+[![Build Status](https://travis-ci.com/piemonte/Twinkle.svg?branch=master)](https://travis-ci.com/piemonte/Twinkle) [![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Swift Version](https://img.shields.io/badge/language-swift%205.9-brightgreen.svg)](https://developer.apple.com/swift) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Twinkle/blob/master/LICENSE)
 
-Need a different version of Swift?
-* `5.0` - Target your Podfile to the latest release or master
-* `4.2` - Target your Podfile to the `swift4.2` branch
+## Requirements
+
+* iOS 15.0+ / tvOS 15.0+
+* Xcode 15.0+
+* Swift 5.9+
 
 # Quick Start
 
@@ -22,15 +24,15 @@ Need a different version of Swift?
 
 ```ruby
 # CocoaPods
-pod "Twinkle", "~> 0.5.0"
+pod "Twinkle", "~> 0.6.0"
 
 # Carthage
-github "piemonte/Twinkle" ~> 0.5.0
+github "piemonte/Twinkle" ~> 0.6.0
 
 # SwiftPM
 let package = Package(
     dependencies: [
-        .Package(url: "https://github.com/piemonte/Twinkle", majorVersion: 0)
+        .package(url: "https://github.com/piemonte/Twinkle", from: "0.6.0")
     ]
 )
 ```
