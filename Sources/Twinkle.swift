@@ -36,24 +36,56 @@ import CoreGraphics
 public enum Twinkle {
     
     /// Configuration for twinkle appearance and behavior
-    public struct Configuration {
-        public var minCount: Int = 5
-        public var maxCount: Int = 10
-        public var birthRate: Float = 8
-        public var lifetime: Float = 1.25
-        public var velocity: CGFloat = 2
-        public var velocityRange: CGFloat = 18
-        public var scale: CGFloat = 0.65
-        public var scaleRange: CGFloat = 0.7
-        public var scaleSpeed: CGFloat = 0.6
-        public var spin: CGFloat = 0.9
-        public var spinRange: CGFloat = .pi
-        public var alphaSpeed: Float = -0.8
-        public var fadeInDuration: TimeInterval = 0.4
-        public var positionAnimationDuration: TimeInterval = 0.3
-        public var rotationAnimationDuration: TimeInterval = 0.3
-        
-        public init() {}
+    public struct Configuration: Sendable {
+        public var minCount: Int
+        public var maxCount: Int
+        public var birthRate: Float
+        public var lifetime: Float
+        public var velocity: CGFloat
+        public var velocityRange: CGFloat
+        public var scale: CGFloat
+        public var scaleRange: CGFloat
+        public var scaleSpeed: CGFloat
+        public var spin: CGFloat
+        public var spinRange: CGFloat
+        public var alphaSpeed: Float
+        public var fadeInDuration: TimeInterval
+        public var positionAnimationDuration: TimeInterval
+        public var rotationAnimationDuration: TimeInterval
+
+        public init(
+            minCount: Int = 5,
+            maxCount: Int = 10,
+            birthRate: Float = 8,
+            lifetime: Float = 1.25,
+            velocity: CGFloat = 2,
+            velocityRange: CGFloat = 18,
+            scale: CGFloat = 0.65,
+            scaleRange: CGFloat = 0.7,
+            scaleSpeed: CGFloat = 0.6,
+            spin: CGFloat = 0.9,
+            spinRange: CGFloat = .pi,
+            alphaSpeed: Float = -0.8,
+            fadeInDuration: TimeInterval = 0.4,
+            positionAnimationDuration: TimeInterval = 0.3,
+            rotationAnimationDuration: TimeInterval = 0.3
+        ) {
+            self.minCount = minCount
+            self.maxCount = maxCount
+            self.birthRate = birthRate
+            self.lifetime = lifetime
+            self.velocity = velocity
+            self.velocityRange = velocityRange
+            self.scale = scale
+            self.scaleRange = scaleRange
+            self.scaleSpeed = scaleSpeed
+            self.spin = spin
+            self.spinRange = spinRange
+            self.alphaSpeed = alphaSpeed
+            self.fadeInDuration = fadeInDuration
+            self.positionAnimationDuration = positionAnimationDuration
+            self.rotationAnimationDuration = rotationAnimationDuration
+        }
     }
     
     /// Casts a spell on the provided view allowing it to twinkle.
@@ -229,11 +261,15 @@ extension UIView {
 // MARK: - Bundle Extension
 
 extension Bundle {
+    #if !SWIFT_PACKAGE
+    private final class BundleToken {}
+    #endif
+
     static var module: Bundle {
         #if SWIFT_PACKAGE
         return Bundle.module
         #else
-        return Bundle(for: TwinkleLayer.self)
+        return Bundle(for: BundleToken.self)
         #endif
     }
 }
