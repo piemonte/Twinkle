@@ -10,13 +10,13 @@ A version of Twinkle is also [available for Android](https://github.com/dev-labs
 
 If you like Twinkle, you may also like [Burst](https://github.com/piemonte/Burst).
 
-[![Build Status](https://travis-ci.com/piemonte/Twinkle.svg?branch=master)](https://travis-ci.com/piemonte/Twinkle) [![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/) [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage) [![Swift Version](https://img.shields.io/badge/language-swift%205.9-brightgreen.svg)](https://developer.apple.com/swift) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Twinkle/blob/master/LICENSE)
+[![Swift Version](https://img.shields.io/badge/language-swift%206.0-brightgreen.svg)](https://developer.apple.com/swift) [![Platform](https://img.shields.io/badge/platform-iOS%2015.0%2B%20%7C%20tvOS%2015.0%2B-blue.svg)](https://developer.apple.com/ios/) [![SPM Compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://swift.org/package-manager/) [![Pod Version](https://img.shields.io/cocoapods/v/Twinkle.svg?style=flat)](http://cocoadocs.org/docsets/Twinkle/) [![GitHub license](https://img.shields.io/badge/license-MIT-lightgrey.svg)](https://github.com/piemonte/Twinkle/blob/master/LICENSE)
 
 ## Requirements
 
 * iOS 15.0+ / tvOS 15.0+
 * Xcode 15.0+
-* Swift 5.9+
+* Swift 6.0+
 
 # Quick Start
 
@@ -24,15 +24,12 @@ If you like Twinkle, you may also like [Burst](https://github.com/piemonte/Burst
 
 ```ruby
 # CocoaPods
-pod "Twinkle", "~> 0.6.0"
-
-# Carthage
-github "piemonte/Twinkle" ~> 0.6.0
+pod "Twinkle", "~> 0.7.0"
 
 # SwiftPM
 let package = Package(
     dependencies: [
-        .package(url: "https://github.com/piemonte/Twinkle", from: "0.6.0")
+        .package(url: "https://github.com/piemonte/Twinkle", from: "0.7.0")
     ]
 )
 ```
